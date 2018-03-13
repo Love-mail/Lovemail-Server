@@ -2,10 +2,48 @@
 
 /**
  * 默认配置
+ * @param  {Object} appInfo - 应用信息
  * @return {Object} config  - 默认配置项
  */
-module.exports = () => {
+module.exports = appInfo => {
   const config = exports = {};
+
+  // app key
+  config.keys = appInfo.name;
+
+  // 中间件
+  config.middleware = [
+    'errorHandler',
+    'responseHandler',
+    'jwt',
+  ];
+
+  // 返回格式处理中间件
+  config.responseHandler = {
+    enable: true,
+    ignore: [
+      '/docs',
+    ],
+  };
+
+  // 国际化
+  config.i18n = {
+    defaultLocale: 'zh-CN',
+    queryField: 'lang',
+    cookieField: 'lang',
+    cookieMaxAge: '1y',
+  };
+
+  // 鉴权中间件
+  config.jwt = {
+    enable: true,
+    key: 'user',
+    ignore: [
+      '/v1/signin',
+      '/v1/signup',
+      '/docs',
+    ],
+  };
 
   // 视图
   config.view = {
@@ -36,9 +74,6 @@ module.exports = () => {
       collate: 'utf8_general_ci',
     },
   };
-
-  // 中间件
-  config.middleware = [];
 
   return config;
 };

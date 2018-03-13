@@ -12,4 +12,5 @@ module.exports = app => {
 
   // 用户
   router.post('/v1/signup', controller.v1.user.signup);
+  router.post('/v1/signin', controller.v1.user.signin);
 };
