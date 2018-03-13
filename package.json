@@ -8,6 +8,7 @@
     "egg-scripts": "^2.5.1",
     "egg-sequelize": "^3.1.2",
     "egg-validate": "^1.0.0",
+    "egg-view-nunjucks": "^2.1.6",
     "jsonwebtoken": "^8.2.0",
     "koa-jwt": "^3.3.0",
     "moment": "^2.21.0",
@@ -29,10 +30,11 @@
     "node": ">=8.9.0"
   },
   "scripts": {
-    "start": "egg-scripts start --daemon --title=egg-server-love-mail",
+    "start": "egg-scripts start --daemon --port=8010 --title=egg-server-love-mail",
     "stop": "egg-scripts stop --title=egg-server-love-mail",
-    "dev": "egg-bin dev",
+    "dev": "egg-bin dev --port=8010",
     "debug": "egg-bin debug",
+    "fix": "npm run lint -- --fix",
     "test": "npm run lint -- --fix && npm run test-local",
     "test-local": "egg-bin test",
     "cov": "egg-bin cov",

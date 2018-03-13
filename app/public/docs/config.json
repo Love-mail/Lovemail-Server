@@ -1,0 +1,21 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Lovemail 的 API 文档",
+    "version": "1.0.0",
+    "title": "Lovemail API",
+    "contact": {
+      "email": "xizhouh@gmail.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "39.108.68.95:8010",
+  "basePath": "/v1",
+  "schemes": [
+    "http"
+  ],
+  "paths": {}
+}

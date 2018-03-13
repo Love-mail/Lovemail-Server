@@ -1,12 +1,31 @@
 'use strict';
 
-module.exports = appInfo => {
+/**
+ * 默认配置
+ * @return {Object} config  - 默认配置项
+ */
+module.exports = () => {
   const config = exports = {};
 
-  // use for cookie sign key, should change to your own and keep security
-  config.keys = appInfo.name + '_1520906372632_9068';
+  // 视图
+  config.view = {
+    defaultViewEngine: 'nunjucks',
+    mapping: {
+      '.tpl': 'nunjucks',
+    },
+  };
 
-  // add your config here
+  // 安全
+  config.security = {
+    methodnoallow: {
+      enable: false,
+    },
+    csrf: {
+      enable: false,
+    },
+  };
+
+  // 中间件
   config.middleware = [];
 
   return config;

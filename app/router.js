@@ -1,9 +1,12 @@
 'use strict';
 
 /**
- * @param {Egg.Application} app - egg application
+ * 路由
+ * @param {Egg.Application} app - egg 应用
  */
 module.exports = app => {
   const { router, controller } = app;
-  router.get('/', controller.home.index);
+
+  // 文档
+  router.get('/docs', controller.docs.index);
 };
