@@ -25,6 +25,18 @@ module.exports = () => {
     },
   };
 
+  // Sequelize
+  config.sequelize = {
+    dialect: 'mysql',
+    database: 'Lovemail',
+    host: '127.0.0.1',
+    port: '3306',
+    charset: 'utf8',
+    dialectOptions: {
+      collate: 'utf8_general_ci',
+    },
+  };
+
   // 中间件
   config.middleware = [];
 
