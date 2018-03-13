@@ -10,3 +10,15 @@ exports.nunjucks = {
 exports.session = {
   enable: false,
 };
+
+// Sequelize
+exports.sequelize = {
+  enable: true,
+  package: 'egg-sequelize',
+};
+
+// Validate
+exports.validate = {
+  enable: true,
+  package: 'egg-validate',
+};
