@@ -9,4 +9,7 @@ module.exports = app => {
 
   // 文档
   router.get('/docs', controller.docs.index);
+
+  // 用户
+  router.post('/v1/signup', controller.v1.user.signup);
 };

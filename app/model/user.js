@@ -27,7 +27,7 @@ module.exports = app => {
       comment: '用户密码',
     },
     love_email: {
-      allowNull: false,
+      allowNull: true,
       unique: true,
       type: STRING,
       validate: {
@@ -40,23 +40,28 @@ module.exports = app => {
       type: STRING,
       comment: '个性化文字',
     },
+    love_time: {
+      allowNull: true,
+      type: STRING,
+      comment: 'Lovemail 发送时间',
+    },
     love_date: {
-      allowNull: false,
+      allowNull: true,
       type: STRING,
       comment: '恋爱日期',
     },
     love_city: {
-      allowNull: false,
+      allowNull: true,
       type: STRING,
       comment: '情人所在城市',
     },
     love_color: {
-      allowNull: false,
+      allowNull: true,
       type: STRING,
       comment: '模板主题色',
     },
     love_email_updated: {
-      allowNull: false,
+      allowNull: true,
       type: STRING,
       comment: '绑定情人邮箱更新时间',
     },
