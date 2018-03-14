@@ -68,7 +68,7 @@
   <script>
     window.onload = function () {
       var ui = SwaggerUIBundle({
-        url: "http://localhost:8010/public/docs/config.json",
+        url: "http://39.108.14.16:8010/public/docs/config.json",
         dom_id: '#swagger-ui',
         deepLinking: true,
         presets: [
