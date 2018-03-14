@@ -8,13 +8,15 @@ module.exports = {
   'Validation Failed': 'Validation Failed',
 
   // response_handler
-  Success: 'Success',
+  'Success': 'Success',
 
   // user.js
   'Signin successful': 'Signin successful',
   'Signup successful': 'Signup successful',
   'Update successful': 'Update successful',
   'Email is occupied': 'Email is occupied',
+  'Email validate': 'Email validate',
+  'Email is not verified': 'Email is not verified',
   'Incorrect email or password': 'Incorrect email or password',
   'Mail sent successfully': 'Mail sent successfully',
 };

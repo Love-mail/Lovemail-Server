@@ -29,6 +29,12 @@ class UserController extends Controller {
       ctx.status = 409;
     } else {
       await ctx.service.v1.user.insertOne(model);
+      await ctx.service.v1.email.send(
+        'Lovemail',
+        model.email,
+        ctx.__('Email validate'),
+        'validate'
+      );
 
       ctx.body = {
         msg: 'Signup successful',
@@ -54,20 +60,27 @@ class UserController extends Controller {
     };
 
     ctx.validate(rule);
-    const isSignined = await ctx.service.v1.user.findBySignin(model);
+    const signinedUser = await ctx.service.v1.user.findBySignin(model);
 
-    if (isSignined) {
-      const userData = {
-        id: isSignined.id,
-      };
+    if (signinedUser) {
+      if (signinedUser.email_validate) {
+        const userData = {
+          id: signinedUser.id,
+        };
 
-      ctx.body = {
-        msg: 'Signin successful',
-        data: {
-          accessToken: ctx.helper.generateToken(userData),
-        },
-      };
-      ctx.status = 200;
+        ctx.body = {
+          msg: 'Signin successful',
+          data: {
+            accessToken: ctx.helper.generateToken(userData),
+          },
+        };
+        ctx.status = 200;
+      } else {
+        ctx.body = {
+          error: 'Email is not verified',
+        };
+        ctx.status = 401;
+      }
     } else {
       ctx.body = {
         error: 'Incorrect email or password',
