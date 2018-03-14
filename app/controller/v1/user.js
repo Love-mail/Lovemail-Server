@@ -30,7 +30,7 @@ class UserController extends Controller {
     } else {
       await ctx.service.v1.user.insertOne(model);
       await ctx.service.v1.email.send(
-        'Lovemail',
+        'thelovemail@126.com',
         model.email,
         ctx.__('Email validate'),
         'validate'
