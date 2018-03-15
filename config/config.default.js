@@ -23,6 +23,7 @@ module.exports = appInfo => {
     enable: true,
     ignore: [
       '/docs',
+      '/v1/user/validate',
     ],
   };
 
@@ -42,6 +43,7 @@ module.exports = appInfo => {
       '/v1/signin',
       '/v1/signup',
       '/docs',
+      '/v1/user/validate',
     ],
   };
 

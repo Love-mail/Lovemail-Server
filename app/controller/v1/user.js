@@ -28,12 +28,12 @@ class UserController extends Controller {
       };
       ctx.status = 409;
     } else {
-      await ctx.service.v1.user.insertOne(model);
+      const signupedUser = await ctx.service.v1.user.insertOne(model);
       await ctx.service.v1.email.send(
-        'thelovemail@126.com',
         model.email,
         ctx.__('Email validate'),
-        'validate'
+        'validate',
+        signupedUser.id
       );
 
       ctx.body = {
@@ -86,6 +86,22 @@ class UserController extends Controller {
         error: 'Incorrect email or password',
       };
       ctx.status = 401;
+    }
+  }
+
+  // 邮箱验证
+  async validate() {
+    const { ctx } = this;
+    const userId = ctx.query.userId;
+
+    const result = await ctx.service.v1.user.validate(userId);
+
+    if (result) {
+      ctx.body = '验证成功';
+      ctx.status = 200;
+    } else {
+      ctx.body = '验证失败, 请重新验证';
+      ctx.status = 500;
     }
   }
 }

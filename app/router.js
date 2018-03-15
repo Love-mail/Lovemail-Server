@@ -10,7 +10,8 @@ module.exports = app => {
   // 文档
   router.get('/docs', controller.docs.index);
 
-  // 用户
+  // 鉴权
   router.post('/v1/signup', controller.v1.user.signup);
   router.post('/v1/signin', controller.v1.user.signin);
+  router.get('/v1/user/validate', controller.v1.user.validate);
 };
