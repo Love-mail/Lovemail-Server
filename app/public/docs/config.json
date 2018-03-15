@@ -12,10 +12,150 @@
       "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
     }
   },
-  "host": "39.108.68.95:8010",
-  "basePath": "/v1",
+  "host": "api.lovemail.site",
   "schemes": [
-    "http"
+    "https"
   ],
-  "paths": {}
+  "basePath": "/v1",
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/signup": {
+      "post": {
+        "tags": [
+          "鉴权"
+        ],
+        "summary": "用户注册",
+        "description": "发送验证邮件和提示信息",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "required": [
+                "email",
+                "password"
+              ],
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": "xxx@xxx.com",
+                  "description": "用户邮箱"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "xxxx",
+                  "description": "用户密码（4 - 20位）"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "注册成功",
+            "schema": {
+              "$ref": "#/definitions/ErrorMsg"
+            }
+          },
+          "409": {
+            "description": "邮箱已占用",
+            "schema": {
+              "$ref": "#/definitions/ErrorMsg"
+            }
+          },
+          "500": {
+            "description": "服务器未知错误",
+            "schema": {
+              "$ref": "#/definitions/ErrorMsg"
+            }
+          }
+        }
+      }
+    },
+    "/signin": {
+      "post": {
+        "tags": [
+          "鉴权"
+        ],
+        "summary": "用户登录",
+        "description": "返回 accessToken 和提示信息",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "required": [
+                "email",
+                "password"
+              ],
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": "xxx@xxx.com",
+                  "description": "用户邮箱"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "xxxx",
+                  "description": "用户密码（4 - 20位）"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "登录成功",
+            "schema": {
+              "properties": {
+                "msg": {
+                  "type": "string",
+                  "description": "提示信息"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "accessToken": {
+                      "type": "string",
+                      "description": "accessToken"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "鉴权错误",
+            "schema": {
+              "$ref": "#/definitions/ErrorMsg"
+            }
+          },
+          "500": {
+            "description": "服务器未知错误",
+            "schema": {
+              "$ref": "#/definitions/ErrorMsg"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ErrorMsg": {
+      "type": "object",
+      "required": [
+        "msg"
+      ],
+      "properties": {
+        "msg": {
+          "type": "string",
+          "description": "文本信息"
+        }
+      }
+    }
+  }
 }
