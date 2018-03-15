@@ -7,7 +7,6 @@ class UserController extends Controller {
   async signup() {
     const { ctx } = this;
     const model = ctx.request.body;
-
     const rule = {
       email: {
         type: 'email',
@@ -29,15 +28,18 @@ class UserController extends Controller {
       ctx.status = 409;
     } else {
       const signupedUser = await ctx.service.v1.user.insertOne(model);
-      await ctx.service.v1.email.send(
-        model.email,
-        ctx.__('Email validate'),
-        'validate',
-        signupedUser.id
-      );
+
+      ctx.runInBackground(async () => {
+        await ctx.service.v1.email.send(
+          model.email,
+          ctx.__('Email validate'),
+          'validate',
+          signupedUser.id
+        );
+      });
 
       ctx.body = {
-        msg: 'Signup successful',
+        msg: 'Signup successful and check your mailbox',
       };
       ctx.status = 201;
     }

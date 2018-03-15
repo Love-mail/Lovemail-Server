@@ -11,6 +11,12 @@ exports.session = {
   enable: false,
 };
 
+// Redis
+exports.redis = {
+  enable: true,
+  package: 'egg-redis',
+};
+
 // Sequelize
 exports.sequelize = {
   enable: true,

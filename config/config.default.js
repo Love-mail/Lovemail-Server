@@ -44,6 +44,7 @@ module.exports = appInfo => {
       '/v1/signup',
       '/docs',
       '/v1/user/validate',
+      '/test',
     ],
   };
 

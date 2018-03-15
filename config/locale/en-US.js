@@ -12,7 +12,7 @@ module.exports = {
 
   // user.js
   'Signin successful': 'Signin successful',
-  'Signup successful': 'Signup successful',
+  'Signup successful and check your mailbox': 'Signup successful and check your mailbox',
   'Update successful': 'Update successful',
   'Email is occupied': 'Email is occupied',
   'Email validate': 'Email validate',

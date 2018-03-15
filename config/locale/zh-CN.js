@@ -12,7 +12,7 @@ module.exports = {
 
   // user.js
   'Signin successful': '登录成功',
-  'Signup successful': '注册成功',
+  'Signup successful and check your mailbox': '注册成功，请验证邮箱',
   'Update successful': '更新成功',
   'Email is occupied': '邮箱已占用',
   'Email validate': '邮箱验证',
