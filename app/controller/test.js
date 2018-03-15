@@ -7,7 +7,7 @@ class TestController extends Controller {
     const { ctx } = this;
 
     ctx.body = {
-      data: ctx.host
+      data: ctx.ip
     }
   }
 }

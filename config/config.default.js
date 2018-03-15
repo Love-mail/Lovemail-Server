@@ -78,5 +78,7 @@ module.exports = appInfo => {
     },
   };
 
+  config.proxy = true
+
   return config;
 };
