@@ -15,6 +15,7 @@
     "mailgun-js": "^0.16.0",
     "moment": "^2.21.0",
     "mysql2": "^1.5.2",
+    "request-ip": "^2.0.2",
     "uniqid": "^4.1.1"
   },
   "devDependencies": {
