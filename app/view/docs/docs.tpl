@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Lovemail API</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro:300,600|Titillium+Web:400,600,700">
-  <link rel="stylesheet" href="https://cdn.bootcss.com/swagger-ui/3.8.1/swagger-ui.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro:300,600|Titillium+Web:400,600,700">
+  <link rel="stylesheet" href="//cdn.bootcss.com/swagger-ui/3.8.1/swagger-ui.css">
   <style>
     html {
       box-sizing: border-box;
@@ -63,12 +63,12 @@
 
   <div id="swagger-ui"></div>
 
-  <script src="https://cdn.bootcss.com/swagger-ui/3.8.1/swagger-ui-bundle.js"></script>
-  <script src="https://cdn.bootcss.com/swagger-ui/3.8.1/swagger-ui-standalone-preset.js"></script>
+  <script src="//cdn.bootcss.com/swagger-ui/3.8.1/swagger-ui-bundle.js"></script>
+  <script src="//cdn.bootcss.com/swagger-ui/3.8.1/swagger-ui-standalone-preset.js"></script>
   <script>
     window.onload = function () {
       var ui = SwaggerUIBundle({
-        url: "http://39.108.14.16:8010/public/docs/config.json",
+        url: "https://api.lovemail.site/public/docs/config.json",
         dom_id: '#swagger-ui',
         deepLinking: true,
         presets: [
