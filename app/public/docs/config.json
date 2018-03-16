@@ -204,6 +204,60 @@
           }
         }
       }
+    },
+    "/user/revalidate": {
+      "post": {
+        "tags": [
+          "用户"
+        ],
+        "summary": "用户重新发送验证邮件（5 分钟间隔限制发送）",
+        "description": "返回提示信息",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "required": [
+                "userId",
+                "email"
+              ],
+              "properties": {
+                "userId": {
+                  "type": "string",
+                  "example": "xxxxxxxxxxx",
+                  "description": "用户 ID"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "xxx@xxx.com",
+                  "description": "用户注册邮箱"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "邮件重发成功",
+            "schema": {
+              "$ref": "#/definitions/Msg"
+            }
+          },
+          "404": {
+            "description": "用户未注册",
+            "schema": {
+              "$ref": "#/definitions/Msg"
+            }
+          },
+          "500": {
+            "description": "服务器未知错误 || 频繁发送",
+            "schema": {
+              "$ref": "#/definitions/Msg"
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
