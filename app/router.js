@@ -13,5 +13,5 @@ module.exports = app => {
   // 鉴权
   router.post('/v1/signup', controller.v1.user.signup);
   router.post('/v1/signin', controller.v1.user.signin);
-  router.get('/v1/user/validate', controller.v1.user.validate);
+  router.post('/v1/user/validate', controller.v1.user.validate);
 };

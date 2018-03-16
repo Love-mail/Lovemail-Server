@@ -35,22 +35,27 @@ class UserController extends Controller {
         };
         ctx.status = 500;
       } else {
-        await ctx.service.v1.user.insertOne(model);
+        const signupedUser = await ctx.service.v1.user.insertOne(model);
+        const validateCode = ctx.helper.generateCode();
 
         ctx.runInBackground(async () => {
           // 设置 60 秒不能再次注册
           await app.redis.get('signupLimit').set(ctx.ip, 'limit', 'EX', 60);
-
+          // 设置邮箱验证码过期时间为 24 小时
+          await app.redis.get('signupCode').set(signupedUser.id, validateCode, 'EX', 60 * 60 * 24);
           await ctx.service.v1.email.send(
             model.email,
             ctx.__('Email validate'),
             'validate',
-            ctx.helper.generateCode()
+            validateCode
           );
         });
 
         ctx.body = {
           msg: 'Signup successful and check your mailbox',
+          data: {
+            userId: signupedUser.id,
+          },
         };
         ctx.status = 201;
       }
@@ -103,18 +108,31 @@ class UserController extends Controller {
     }
   }
 
-  // 邮箱验证
+  // 邮箱验证码验证
   async validate() {
     const { ctx } = this;
-    const userId = ctx.query.userId;
+    const model = ctx.request.body;
+    const rule = {
+      userId: {
+        type: 'string',
+      },
+      code: {
+        type: 'string',
+      },
+    };
 
-    const result = await ctx.service.v1.user.validate(userId);
+    ctx.validate(rule);
+    const result = await ctx.service.v1.user.validate(model.userId, model.code);
 
     if (result) {
-      ctx.body = '验证成功';
+      ctx.body = {
+        msg: 'Verification success',
+      };
       ctx.status = 200;
     } else {
-      ctx.body = '验证失败, 请重新验证';
+      ctx.body = {
+        msg: 'Verification failed',
+      };
       ctx.status = 500;
     }
   }

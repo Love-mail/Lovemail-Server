@@ -18,6 +18,8 @@ module.exports = {
   'Email is occupied': 'Email is occupied',
   'Email validate': 'Email validate',
   'Email is not verified': 'Email is not verified',
+  'Verification success': 'Verification success',
+  'Verification failed': 'Verification failed',
   'Incorrect email or password': 'Incorrect email or password',
   'Mail sent successfully': 'Mail sent successfully',
 };

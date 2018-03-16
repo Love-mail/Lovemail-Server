@@ -23,7 +23,6 @@ module.exports = appInfo => {
     enable: true,
     ignore: [
       '/docs',
-      '/v1/user/validate',
     ],
   };
 

@@ -18,6 +18,8 @@ module.exports = {
   'Email is occupied': '邮箱已占用',
   'Email validate': '邮箱验证',
   'Email is not verified': '邮箱未验证',
+  'Verification success': '验证成功',
+  'Verification failed': '验证失败',
   'Incorrect email or password': '邮箱地址或密码错误',
   'Mail sent successfully': '邮件发送成功',
 };

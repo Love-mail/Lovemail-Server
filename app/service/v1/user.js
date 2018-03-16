@@ -6,18 +6,20 @@ class UserService extends Service {
   /**
    * 注册一个用户
    * @param {Object}  model  - 响应主体模型
-   * @return {void}
+   * @return {Object} result - 注册用户信息
    */
   async insertOne(model) {
     const { ctx } = this;
 
-    await ctx.model.User.create({
+    const result = await ctx.model.User.create({
       id: ctx.helper.uniqueId(),
       email: model.email,
       password: ctx.helper.md5(model.password),
       created_at: new Date().toLocaleString(),
       updated_at: new Date().toLocaleString(),
     });
+
+    return result;
   }
 
   /**
@@ -78,19 +80,19 @@ class UserService extends Service {
   }
 
   /**
-   * 用户邮箱验证
+   * 邮箱验证码校验
    * @param {String}   userId - 用户 ID
+   * @param {String}   code   - 用户输入验证码
    * @return {Boolean} result - 验证结果
    */
-  async validate(userId) {
-    const { ctx } = this;
+  async validate(userId, code) {
+    const { ctx, app } = this;
 
-    const validateUser = await ctx.service.v1.user.findById(userId);
+    const validateCode = await app.redis.get('signupCode').get(userId);
 
-    if (validateUser) {
+    if (validateCode === code) {
       await ctx.model.User.update({
         email_validate: true,
-        updated_at: new Date().toLocaleString(),
       }, {
         where: {
           id: userId,
