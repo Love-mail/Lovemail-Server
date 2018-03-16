@@ -5,7 +5,7 @@ const Controller = require('egg').Controller;
 class UserController extends Controller {
   // 注册
   async signup() {
-    const { ctx } = this;
+    const { ctx, app } = this;
     const model = ctx.request.body;
     const rule = {
       email: {
@@ -27,21 +27,33 @@ class UserController extends Controller {
       };
       ctx.status = 409;
     } else {
-      const signupedUser = await ctx.service.v1.user.insertOne(model);
+      const hasSignuped = await app.redis.get('signupLimit').exists(ctx.ip);
 
-      ctx.runInBackground(async () => {
-        await ctx.service.v1.email.send(
-          model.email,
-          ctx.__('Email validate'),
-          'validate',
-          signupedUser.id
-        );
-      });
+      if (hasSignuped) {
+        ctx.body = {
+          msg: 'Please do not signup frequently',
+        };
+        ctx.status = 500;
+      } else {
+        await ctx.service.v1.user.insertOne(model);
 
-      ctx.body = {
-        msg: 'Signup successful and check your mailbox',
-      };
-      ctx.status = 201;
+        ctx.runInBackground(async () => {
+          // 设置 60 秒不能再次注册
+          await app.redis.get('signupLimit').set(ctx.ip, 'limit', 'EX', 60);
+
+          await ctx.service.v1.email.send(
+            model.email,
+            ctx.__('Email validate'),
+            'validate',
+            ctx.helper.generateCode()
+          );
+        });
+
+        ctx.body = {
+          msg: 'Signup successful and check your mailbox',
+        };
+        ctx.status = 201;
+      }
     }
   }
 

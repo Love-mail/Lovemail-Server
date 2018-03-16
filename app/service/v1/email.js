@@ -8,10 +8,10 @@ class EmailService extends Service {
    * @param {String} receiver - 邮件接收方
    * @param {String} title    - 邮件标题
    * @param {String} type     - 邮件类型
-   * @param {String} userId   - 用户 ID
+   * @param {String} code     - 邮箱验证码
    * @return {void}
    */
-  async send(receiver, title, type, userId) {
+  async send(receiver, title, type, code) {
     const { ctx } = this;
     let template;
 
@@ -20,7 +20,7 @@ class EmailService extends Service {
         'template/email/validate.tpl',
         {
           data: {
-            userId,
+            code,
           },
         }
       );

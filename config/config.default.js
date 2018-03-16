@@ -44,7 +44,6 @@ module.exports = appInfo => {
       '/v1/signup',
       '/docs',
       '/v1/user/validate',
-      '/test',
     ],
   };
 
@@ -78,7 +77,29 @@ module.exports = appInfo => {
     },
   };
 
-  config.proxy = true
+  // Redis
+  config.redis = {
+    clients: {
+      signupCode: {
+        port: 6379,
+        host: '127.0.0.1',
+        db: 0,
+      },
+      signupLimit: {
+        port: 6379,
+        host: '127.0.0.1',
+        db: 1,
+      },
+      validateLimit: {
+        port: 6379,
+        host: '127.0.0.1',
+        db: 2,
+      },
+    },
+  };
+
+  // Proxy
+  config.proxy = true;
 
   return config;
 };

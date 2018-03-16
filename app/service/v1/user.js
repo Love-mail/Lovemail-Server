@@ -6,20 +6,18 @@ class UserService extends Service {
   /**
    * 注册一个用户
    * @param {Object}  model  - 响应主体模型
-   * @return {Object} result - 注册用户信息
+   * @return {void}
    */
   async insertOne(model) {
     const { ctx } = this;
 
-    const result = await ctx.model.User.create({
+    await ctx.model.User.create({
       id: ctx.helper.uniqueId(),
       email: model.email,
       password: ctx.helper.md5(model.password),
       created_at: new Date().toLocaleString(),
       updated_at: new Date().toLocaleString(),
     });
-
-    return result;
   }
 
   /**

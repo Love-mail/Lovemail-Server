@@ -89,7 +89,7 @@
                     <tr style="font-family: sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
                       <td class="content-block" style="font-family: sans-serif; box-sizing: border-box; font-size: 24px; font-weight: 400; vertical-align: top; margin: 0; padding: 20px 0 20px;line-height:40px;"
                         valign="top">
-                        验证邮箱，开启您的
+                        获取验证码，开启您的
                         <span style="color:#DEA1BB;">LOVEMAIL</span> 之旅
                       </td>
                     </tr>
@@ -103,8 +103,8 @@
                     <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
                       <td class="content-block" itemprop="handler" itemscope itemtype="http://schema.org/HttpActionHandler" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;"
                         valign="top">
-                        <a href="https://api.lovemail.site/v1/user/validate?userId={{data.userId}}" class="btn-primary" itemprop="url" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; color: #FFF; text-decoration: none; line-height: 2em; font-weight: bold; text-align: center; cursor: pointer; display: inline-block; border-radius: 5px; text-transform: capitalize; background-color: #DEA1BB; margin: 0; border-color: #DEA1BB; border-style: solid; border-width: 10px 20px;">
-                          立即验证
+                        <a class="btn-primary" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; color: #FFF; text-decoration: none; line-height: 2em; font-weight: bold; text-align: center; cursor: text; display: inline-block; border-radius: 5px; text-transform: capitalize; background-color: #DEA1BB; margin: 0; border-color: #DEA1BB; border-style: solid; border-width: 10px 20px;letter-spacing:3px;">
+                          {{data.code}}
                         </a>
                       </td>
                     </tr>

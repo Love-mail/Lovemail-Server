@@ -23,4 +23,17 @@ module.exports = {
       exp: Math.floor(Date.now() / 1000) + (24 * 60 * 60),
     }, this.ctx.app.config.jwt.secret);
   },
+
+  // 生成验证码
+  generateCode() {
+    let code = '';
+    const selectChar = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' ];
+
+    for (let i = 0; i < 10; i++) {
+      const idx = Math.floor(Math.random() * 36);
+      code += selectChar[idx];
+    }
+
+    return code;
+  },
 };

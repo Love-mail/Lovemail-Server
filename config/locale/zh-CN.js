@@ -12,7 +12,8 @@ module.exports = {
 
   // user.js
   'Signin successful': '登录成功',
-  'Signup successful and check your mailbox': '注册成功，请验证邮箱',
+  'Signup successful and check your mailbox': '注册成功，前往邮箱获取验证码',
+  'Please do not signup frequently': '请勿频繁注册',
   'Update successful': '更新成功',
   'Email is occupied': '邮箱已占用',
   'Email validate': '邮箱验证',
