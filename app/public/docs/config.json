@@ -57,19 +57,33 @@
           "201": {
             "description": "注册成功",
             "schema": {
-              "$ref": "#/definitions/ErrorMsg"
+              "properties": {
+                "msg": {
+                  "type": "string",
+                  "description": "提示信息"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "userId": {
+                      "type": "string",
+                      "description": "用户 ID"
+                    }
+                  }
+                }
+              }
             }
           },
           "409": {
             "description": "邮箱已占用",
             "schema": {
-              "$ref": "#/definitions/ErrorMsg"
+              "$ref": "#/definitions/Msg"
             }
           },
           "500": {
-            "description": "服务器未知错误",
+            "description": "服务器未知错误 || 注册频率超出限制（60s 重置）",
             "schema": {
-              "$ref": "#/definitions/ErrorMsg"
+              "$ref": "#/definitions/Msg"
             }
           }
         }
@@ -131,13 +145,61 @@
           "401": {
             "description": "鉴权错误",
             "schema": {
-              "$ref": "#/definitions/ErrorMsg"
+              "$ref": "#/definitions/Msg"
             }
           },
           "500": {
             "description": "服务器未知错误",
             "schema": {
-              "$ref": "#/definitions/ErrorMsg"
+              "$ref": "#/definitions/Msg"
+            }
+          }
+        }
+      }
+    },
+    "/user/validate": {
+      "post": {
+        "tags": [
+          "用户"
+        ],
+        "summary": "用户注册验证（验证码 24 小时后失效）",
+        "description": "返回提示信息",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "required": [
+                "userId",
+                "code"
+              ],
+              "properties": {
+                "userId": {
+                  "type": "string",
+                  "example": "xxxxxxxxxxx",
+                  "description": "用户 ID"
+                },
+                "code": {
+                  "type": "string",
+                  "example": "xxxxxxxxxx",
+                  "description": "用户获取的验证码"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "验证成功",
+            "schema": {
+              "$ref": "#/definitions/Msg"
+            }
+          },
+          "500": {
+            "description": "服务器未知错误 || 验证失败",
+            "schema": {
+              "$ref": "#/definitions/Msg"
             }
           }
         }
@@ -145,7 +207,7 @@
     }
   },
   "definitions": {
-    "ErrorMsg": {
+    "Msg": {
       "type": "object",
       "required": [
         "msg"
