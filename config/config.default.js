@@ -43,6 +43,7 @@ module.exports = appInfo => {
       '/v1/signup',
       '/docs',
       '/v1/user/validate',
+      '/v1/user/revalidate',
     ],
   };
 
@@ -89,10 +90,15 @@ module.exports = appInfo => {
         host: '127.0.0.1',
         db: 1,
       },
-      validateLimit: {
+      reValidateLimit: {
         port: 6379,
         host: '127.0.0.1',
         db: 2,
+      },
+      lovequotes: {
+        port: 6379,
+        host: '127.0.0.1',
+        db: 3,
       },
     },
   };

@@ -14,4 +14,5 @@ module.exports = app => {
   router.post('/v1/signup', controller.v1.user.signup);
   router.post('/v1/signin', controller.v1.user.signin);
   router.post('/v1/user/validate', controller.v1.user.validate);
+  router.post('/v1/user/revalidate', controller.v1.user.reValidate);
 };

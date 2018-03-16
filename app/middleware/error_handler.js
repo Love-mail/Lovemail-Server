@@ -17,7 +17,7 @@ module.exports = () => {
           msg: ctx.__(error.message),
           error: error.errors,
         };
-        ctx.status = 500;
+        ctx.status = 400;
       } else if (error.message) {
         ctx.body = {
           msg: ctx.__(error.message),

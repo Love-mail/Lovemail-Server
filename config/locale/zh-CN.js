@@ -20,6 +20,9 @@ module.exports = {
   'Email is not verified': '邮箱未验证',
   'Verification success': '验证成功',
   'Verification failed': '验证失败',
+  'Please signup first': '请先注册',
+  'Please do not send email frequently': '请不要频繁发送验证邮件',
+  'Resend mail successfully': '邮件重发成功',
   'Incorrect email or password': '邮箱地址或密码错误',
   'Mail sent successfully': '邮件发送成功',
 };

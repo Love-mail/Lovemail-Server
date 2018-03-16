@@ -20,6 +20,9 @@ module.exports = {
   'Email is not verified': 'Email is not verified',
   'Verification success': 'Verification success',
   'Verification failed': 'Verification failed',
+  'Please signup first': 'Please signup first',
+  'Please do not send email frequently': 'Please do not send email frequently',
+  'Resend mail successfully': 'Resend mail successfully',
   'Incorrect email or password': 'Incorrect email or password',
   'Mail sent successfully': 'Mail sent successfully',
 };
