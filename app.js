@@ -7,7 +7,7 @@ module.exports = app => {
     await app.runSchedule('update_weather');
 
     app.mailgun = require('mailgun-js')({
-      apiKey: app.config.mailgun.api_key,
+      apiKey: app.config.mailgun.apiKey,
       domain: app.config.mailgun.domain,
     });
   });

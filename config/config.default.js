@@ -108,6 +108,11 @@ module.exports = appInfo => {
     },
   };
 
+  // 阿里云 Node.js 性能平台
+  config.alinode = {
+    server: 'wss://agentserver.node.aliyun.com:8080',
+  };
+
   // Proxy
   config.proxy = true;
 

@@ -28,3 +28,9 @@ exports.validate = {
   enable: true,
   package: 'egg-validate',
 };
+
+// 阿里云 Node.js 性能平台
+exports.alinode = {
+  enable: true,
+  package: 'egg-alinode'
+};

@@ -15,4 +15,7 @@ module.exports = app => {
   router.post('/v1/signin', controller.v1.user.signin);
   router.post('/v1/user/validate', controller.v1.user.validate);
   router.post('/v1/user/revalidate', controller.v1.user.reValidate);
+
+  // 城市列表
+  router.get('/v1/city/all', controller.v1.city.index);
 };
