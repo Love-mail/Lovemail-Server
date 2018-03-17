@@ -1,10 +1,16 @@
 'use strict';
 
 const uniqid = require('uniqid');
+const moment = require('moment');
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
 
 module.exports = {
+  // 格式化当前时间
+  formTime() {
+    return moment().format('YYYY-MM-DD');
+  },
+
   // 生成 unique ID
   uniqueId() {
     return uniqid();

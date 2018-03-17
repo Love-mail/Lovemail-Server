@@ -15,7 +15,8 @@
     "mailgun-js": "^0.16.0",
     "moment": "^2.21.0",
     "mysql2": "^1.5.2",
-    "uniqid": "^4.1.1"
+    "uniqid": "^4.1.1",
+    "xml2js": "^0.4.19"
   },
   "devDependencies": {
     "autod": "^3.0.1",

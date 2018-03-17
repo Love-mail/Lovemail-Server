@@ -95,10 +95,15 @@ module.exports = appInfo => {
         host: '127.0.0.1',
         db: 2,
       },
-      lovequotes: {
+      one: {
         port: 6379,
         host: '127.0.0.1',
         db: 3,
+      },
+      weatherChina: {
+        port: 6379,
+        host: '127.0.0.1',
+        db: 4,
       },
     },
   };
