@@ -13,7 +13,7 @@ class UserService extends Service {
 
     await ctx.model.City.create({
       id: ctx.helper.uniqueId(),
-      cityName: cityName,
+      cityName,
       created_at: new Date().toLocaleString(),
       updated_at: new Date().toLocaleString(),
     });

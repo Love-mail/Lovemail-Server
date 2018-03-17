@@ -239,9 +239,21 @@
         ],
         "responses": {
           "200": {
-            "description": "邮件重发成功",
+            "description": "获取城市列表成功",
             "schema": {
-              "$ref": "#/definitions/Msg"
+              "properties": {
+                "msg": {
+                  "type": "string",
+                  "description": "提示信息"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "description": "城市名"
+                  }
+                }
+              }
             }
           },
           "404": {
@@ -252,6 +264,38 @@
           },
           "500": {
             "description": "服务器未知错误 || 频繁发送",
+            "schema": {
+              "$ref": "#/definitions/Msg"
+            }
+          }
+        }
+      }
+    },
+    "/city/all": {
+      "get": {
+        "tags": [
+          "城市列表"
+        ],
+        "summary": "获取支持天气的城市列表",
+        "description": "返回城市列表",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "AccessToken",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "获取城市列表成功",
+            "schema": {
+              "$ref": "#/definitions/Msg"
+            }
+          },
+          "500": {
+            "description": "服务器未知错误",
             "schema": {
               "$ref": "#/definitions/Msg"
             }

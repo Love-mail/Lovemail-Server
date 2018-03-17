@@ -7,17 +7,17 @@ class CityController extends Controller {
     const { ctx } = this;
 
     const result = await ctx.service.v1.city.findAll();
-    const resource = result.rows.map((e) => {
-      return e.cityName
-    })
-    const uniqueResult = [...new Set(resource)]
+    const resource = result.rows.map(e => {
+      return e.cityName;
+    });
+    const uniqueResult = [ ...new Set(resource) ];
 
     ctx.body = {
       data: {
         count: uniqueResult.length,
-        content: uniqueResult
-      }
-    }
+        content: uniqueResult,
+      },
+    };
     ctx.status = 200;
   }
 }

@@ -15,6 +15,7 @@ class UpdateOne extends Subscription {
     const formTime = ctx.helper.formTime();
     const url = `http://v3.wufazhuce.com:8000/api/hp/bymonth/${formTime}%2000:00:00?channel=wdj&version=4.0.2&uuid=ffffffff-a90e-706a-63f7-ccf973aae5ee&platform=android`;
     const result = await ctx.curl(url, {
+      timeout: [ 10000, 300000 ],
       dataType: 'json',
     });
 

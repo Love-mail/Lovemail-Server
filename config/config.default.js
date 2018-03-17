@@ -113,6 +113,11 @@ module.exports = appInfo => {
     server: 'wss://agentserver.node.aliyun.com:8080',
   };
 
+  // 静态文件服务
+  exports.static = {
+    maxAge: 0,
+  };
+
   // Proxy
   config.proxy = true;
 
