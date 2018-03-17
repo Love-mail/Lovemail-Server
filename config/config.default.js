@@ -63,6 +63,7 @@ module.exports = appInfo => {
     csrf: {
       enable: false,
     },
+    domainWhiteList: ['*']
   };
 
   // Sequelize
@@ -114,9 +115,15 @@ module.exports = appInfo => {
   };
 
   // 静态文件服务
-  exports.static = {
-    maxAge: 0,
+  config.static = {
+    maxAge: 60,
   };
+
+  // 跨域处理
+  config.cors = {
+    enable: true,
+    package: 'egg-cors',
+  }
 
   // Proxy
   config.proxy = true;
