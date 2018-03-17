@@ -239,21 +239,9 @@
         ],
         "responses": {
           "200": {
-            "description": "获取城市列表成功",
+            "description": "验证邮件发送成功",
             "schema": {
-              "properties": {
-                "msg": {
-                  "type": "string",
-                  "description": "提示信息"
-                },
-                "data": {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "description": "城市名"
-                  }
-                }
-              }
+              "$ref": "#/definitions/Msg"
             }
           },
           "404": {
@@ -291,7 +279,28 @@
           "200": {
             "description": "获取城市列表成功",
             "schema": {
-              "$ref": "#/definitions/Msg"
+              "properties": {
+                "msg": {
+                  "type": "string",
+                  "description": "提示信息"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "number",
+                      "description": "城市数量"
+                    },
+                    "content": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "description": "城市名"
+                      }
+                    }
+                  }
+                }
+              }
             }
           },
           "500": {
