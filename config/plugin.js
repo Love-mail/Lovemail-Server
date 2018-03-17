@@ -23,6 +23,12 @@ exports.sequelize = {
   package: 'egg-sequelize',
 };
 
+// 跨域处理
+exports.cors = {
+  enable: true,
+  package: 'egg-cors',
+}
+
 // Validate
 exports.validate = {
   enable: true,

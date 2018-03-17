@@ -119,12 +119,6 @@ module.exports = appInfo => {
     maxAge: 60,
   };
 
-  // 跨域处理
-  config.cors = {
-    enable: true,
-    package: 'egg-cors',
-  }
-
   // Proxy
   config.proxy = true;
 
