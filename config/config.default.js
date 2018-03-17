@@ -63,7 +63,7 @@ module.exports = appInfo => {
     csrf: {
       enable: false,
     },
-    domainWhiteList: ['*']
+    domainWhiteList: ['https://lovemail.site']
   };
 
   // Sequelize
