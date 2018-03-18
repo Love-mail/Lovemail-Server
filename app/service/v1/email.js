@@ -26,6 +26,17 @@ class EmailService extends Service {
       );
     }
 
+    if (type === 'resetPass') {
+      template = await ctx.renderView(
+        'template/email/reset.tpl',
+        {
+          data: {
+            code,
+          },
+        }
+      );
+    }
+
     const mailOptions = {
       from: ctx.app.config.mailgun.from,
       to: receiver,

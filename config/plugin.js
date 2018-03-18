@@ -27,7 +27,7 @@ exports.sequelize = {
 exports.cors = {
   enable: true,
   package: 'egg-cors',
-}
+};
 
 // Validate
 exports.validate = {

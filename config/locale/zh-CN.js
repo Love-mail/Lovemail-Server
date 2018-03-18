@@ -8,21 +8,23 @@ module.exports = {
   'Validation Failed': '数据格式错误',
 
   // response_handler
-  'Success': '成功',
+  Success: '成功',
 
   // user.js
   'Signin successful': '登录成功',
-  'Signup successful and check your mailbox': '注册成功，前往邮箱获取验证码',
+  'Signup successful': '注册成功，前往邮箱获取验证码',
   'Please do not signup frequently': '请勿频繁注册',
   'Update successful': '更新成功',
   'Email is occupied': '邮箱已占用',
   'Email validate': '邮箱验证',
-  'Email is not verified': '邮箱未验证',
-  'Verification success': '验证成功',
   'Verification failed': '验证失败',
   'Please signup first': '请先注册',
   'Please do not send email frequently': '请不要频繁发送验证邮件',
-  'Resend mail successfully': '邮件重发成功',
+  'You have verified success': '您已验证成功',
+  'Password reset verificate': '密码重置验证',
+  'Send verification mail successfully': '发送验证邮件成功',
+  'Reset password successfully': '重置密码成功',
+  'Resend mail successfully': '验证邮件重发成功',
   'Incorrect email or password': '邮箱地址或密码错误',
   'Mail sent successfully': '邮件发送成功',
 };

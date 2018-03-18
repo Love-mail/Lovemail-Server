@@ -47,7 +47,7 @@ class UserService extends Service {
 
   /**
    * 邮箱查询一个用户
-   * @param {Object}  email  - 用户邮箱
+   * @param {String}  email  - 用户邮箱
    * @return {Object} result - 查询结果
    */
   async findByEmail(email) {
@@ -64,7 +64,7 @@ class UserService extends Service {
 
   /**
    * 用户 ID 查询一个用户
-   * @param {Object}  id     - 用户 ID
+   * @param {String}  id     - 用户 ID
    * @return {Object} result - 查询结果
    */
   async findById(id) {
@@ -80,29 +80,38 @@ class UserService extends Service {
   }
 
   /**
-   * 邮箱验证码校验
-   * @param {String}   userId - 用户 ID
-   * @param {String}   code   - 用户输入验证码
-   * @return {Boolean} result - 验证结果
+   * 用户 ID 更新密码
+   * @param {String}  id      - 用户 ID
+   * @param {String}  newPass - 用户新密码
+   * @return {void}
    */
-  async validate(userId, code) {
-    const { ctx, app } = this;
+  async updatePass(id, newPass) {
+    const { ctx } = this;
 
-    const validateCode = await app.redis.get('signupCode').get(userId);
+    await ctx.model.User.update({
+      password: ctx.helper.md5(newPass),
+    }, {
+      where: {
+        id,
+      },
+    });
+  }
 
-    if (validateCode === code) {
-      await ctx.model.User.update({
-        email_validate: true,
-      }, {
-        where: {
-          id: userId,
-        },
-      });
+  /**
+   * 用户通过验证
+   * @param {String} id - 用户 ID
+   * @return {void}
+   */
+  async validated(id) {
+    const { ctx } = this;
 
-      return true;
-    }
-
-    return false;
+    await ctx.model.User.update({
+      email_validate: true,
+    }, {
+      where: {
+        id,
+      },
+    });
   }
 }
 

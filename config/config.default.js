@@ -43,7 +43,9 @@ module.exports = appInfo => {
       '/v1/signup',
       '/docs',
       '/v1/user/validate',
-      '/v1/user/revalidate',
+      '/v1/user/signup/revalidate/email',
+      '/v1/user/reset/email',
+      '/v1/user/reset',
     ],
   };
 
@@ -80,30 +82,25 @@ module.exports = appInfo => {
   // Redis
   config.redis = {
     clients: {
-      signupCode: {
+      validateCode: {
         port: 6379,
         host: '127.0.0.1',
         db: 0,
       },
-      signupLimit: {
+      emailLimit: {
         port: 6379,
         host: '127.0.0.1',
         db: 1,
       },
-      reValidateLimit: {
+      one: {
         port: 6379,
         host: '127.0.0.1',
         db: 2,
       },
-      one: {
-        port: 6379,
-        host: '127.0.0.1',
-        db: 3,
-      },
       weatherChina: {
         port: 6379,
         host: '127.0.0.1',
-        db: 4,
+        db: 3,
       },
     },
   };

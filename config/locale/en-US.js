@@ -8,20 +8,22 @@ module.exports = {
   'Validation Failed': 'Validation Failed',
 
   // response_handler
-  'Success': 'Success',
+  Success: 'Success',
 
   // user.js
   'Signin successful': 'Signin successful',
-  'Signup successful and check your mailbox': 'Signup successful and check your mailbox',
+  'Signup successful': 'Signup successful',
   'Please do not signup frequently': 'Please do not signup frequently',
   'Update successful': 'Update successful',
   'Email is occupied': 'Email is occupied',
   'Email validate': 'Email validate',
-  'Email is not verified': 'Email is not verified',
-  'Verification success': 'Verification success',
   'Verification failed': 'Verification failed',
   'Please signup first': 'Please signup first',
   'Please do not send email frequently': 'Please do not send email frequently',
+  'You have verified success': 'You have verified success',
+  'Password reset verificate': 'Password reset verificate',
+  'Send verification mail successfully': 'Send verification mail successfully',
+  'Reset password successfully': 'Reset password successfully',
   'Resend mail successfully': 'Resend mail successfully',
   'Incorrect email or password': 'Incorrect email or password',
   'Mail sent successfully': 'Mail sent successfully',
