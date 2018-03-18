@@ -37,7 +37,7 @@ class LovemailController extends Controller {
     };
 
     ctx.validate(rule);
-    const isLimit = await app.redis.get('setEmailLimit').exists(ctx.state.user.data.userId, model);
+    const isLimit = await app.redis.get('setEmailLimit').exists(ctx.state.user.data.userId);
     const isOccupy = await ctx.service.v1.lovemail.findByLovemail(model.love_email);
 
     if (isOccupy) {
@@ -98,7 +98,7 @@ class LovemailController extends Controller {
     };
 
     ctx.validate(rule);
-    const isLimit = await app.redis.get('setEmailLimit').exists(ctx.state.user.data.userId, model);
+    const isLimit = await app.redis.get('setEmailLimit').exists(ctx.state.user.data.userId);
     const isOccupied = await ctx.service.v1.lovemail.findByLovemail(model.love_email);
 
     if (model.love_email && isOccupied) {
