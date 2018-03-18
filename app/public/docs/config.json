@@ -66,12 +66,6 @@
               "$ref": "#/definitions/Msg"
             }
           },
-          "409": {
-            "description": "邮箱已占用",
-            "schema": {
-              "$ref": "#/definitions/Msg"
-            }
-          },
           "500": {
             "description": "服务器未知错误",
             "schema": {
@@ -188,6 +182,12 @@
               "$ref": "#/definitions/Msg"
             }
           },
+          "409": {
+            "description": "邮箱已占用",
+            "schema": {
+              "$ref": "#/definitions/Msg"
+            }
+          },
           "500": {
             "description": "服务器未知错误 || 频繁发送",
             "schema": {
@@ -245,6 +245,208 @@
           },
           "404": {
             "description": "用户未注册",
+            "schema": {
+              "$ref": "#/definitions/Msg"
+            }
+          },
+          "500": {
+            "description": "服务器未知错误",
+            "schema": {
+              "$ref": "#/definitions/Msg"
+            }
+          }
+        }
+      }
+    },
+    "/lovemail/setting": {
+      "post": {
+        "tags": [
+          "用户"
+        ],
+        "summary": "保存对象邮箱推送设置（对象邮箱设置 24 小时间隔）",
+        "description": "返回提示信息",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "AccessToken",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "required": [
+                "love_email",
+                "love_time",
+                "love_date",
+                "love_city",
+                "love_color",
+                "isStart"
+              ],
+              "properties": {
+                "love_email": {
+                  "type": "string",
+                  "example": "xxx@xxx.com",
+                  "description": "对象邮箱"
+                },
+                "love_msg": {
+                  "type": "string",
+                  "example": "我爱你",
+                  "description": "一段情话（小于 150 字）"
+                },
+                "love_time": {
+                  "type": "string",
+                  "example": 420,
+                  "description": "发件时间（暂定均为 7:00）"
+                },
+                "love_date": {
+                  "type": "string",
+                  "example": "2018-01-01T00:00:00.000Z",
+                  "description": "在一起时间（YYYY-MM-DD）"
+                },
+                "love_city": {
+                  "type": "string",
+                  "example": "南昌",
+                  "description": "对象所在城市名（从城市列表获取，如没有则传空字符串）"
+                },
+                "love_color": {
+                  "type": "string",
+                  "example": "#EFEFEF",
+                  "description": "邮件主题颜色"
+                },
+                "isStart": {
+                  "type": "boolean",
+                  "example": true,
+                  "description": "是否执行发送"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "设置成功",
+            "schema": {
+              "$ref": "#/definitions/Msg"
+            }
+          },
+          "409": {
+            "description": "邮箱已占用",
+            "schema": {
+              "$ref": "#/definitions/Msg"
+            }
+          },
+          "500": {
+            "description": "服务器未知错误 || 频繁设置对象邮箱",
+            "schema": {
+              "$ref": "#/definitions/Msg"
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "用户"
+        ],
+        "summary": "更新对象邮箱推送设置（对象邮箱设置 24 小时间隔）",
+        "description": "返回提示信息",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "AccessToken",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "love_email": {
+                  "type": "string",
+                  "example": "xxx@xxx.com",
+                  "description": "对象邮箱"
+                },
+                "love_msg": {
+                  "type": "string",
+                  "example": "我爱你",
+                  "description": "一段情话（小于 150 字）"
+                },
+                "love_time": {
+                  "type": "string",
+                  "example": 420,
+                  "description": "发件时间（暂定均为 7:00）"
+                },
+                "love_date": {
+                  "type": "string",
+                  "example": "2018-01-01T00:00:00.000Z",
+                  "description": "在一起时间（YYYY-MM-DD）"
+                },
+                "love_city": {
+                  "type": "string",
+                  "example": "南昌",
+                  "description": "对象所在城市名（从城市列表获取，如没有则传空字符串）"
+                },
+                "love_color": {
+                  "type": "string",
+                  "example": "#EFEFEF",
+                  "description": "邮件主题颜色"
+                },
+                "isStart": {
+                  "type": "boolean",
+                  "example": true,
+                  "description": "是否执行发送"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "设置成功",
+            "schema": {
+              "$ref": "#/definitions/Msg"
+            }
+          },
+          "409": {
+            "description": "邮箱已占用",
+            "schema": {
+              "$ref": "#/definitions/Msg"
+            }
+          },
+          "500": {
+            "description": "服务器未知错误 || 频繁设置对象邮箱",
+            "schema": {
+              "$ref": "#/definitions/Msg"
+            }
+          }
+        }
+      }
+    },
+    "/lovemail/untie": {
+      "patch": {
+        "tags": [
+          "用户"
+        ],
+        "summary": "解绑对象邮箱（解绑后有 24 小时频率限制）",
+        "description": "返回提示信息",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "AccessToken",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "对象邮箱解绑成功",
             "schema": {
               "$ref": "#/definitions/Msg"
             }
