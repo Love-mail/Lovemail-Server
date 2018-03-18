@@ -198,7 +198,7 @@
       }
     },
     "/user/reset": {
-      "post": {
+      "patch": {
         "tags": [
           "用户"
         ],
@@ -225,6 +225,11 @@
                   "type": "string",
                   "example": "xxxx",
                   "description": "用户密码（4 - 20位）"
+                },
+                "code": {
+                  "type": "string",
+                  "example": "xxxxxxxxxx",
+                  "description": "验证码"
                 }
               }
             }
