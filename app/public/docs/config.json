@@ -26,7 +26,7 @@
         "tags": [
           "鉴权"
         ],
-        "summary": "用户注册",
+        "summary": "注册",
         "description": "发送验证邮件和提示信息",
         "parameters": [
           {
@@ -36,7 +36,8 @@
             "schema": {
               "required": [
                 "email",
-                "password"
+                "password",
+                "code"
               ],
               "properties": {
                 "email": {
@@ -48,6 +49,11 @@
                   "type": "string",
                   "example": "xxxx",
                   "description": "用户密码（4 - 20位）"
+                },
+                "code": {
+                  "type": "string",
+                  "example": "xxxxxxxxxx",
+                  "description": "验证码"
                 }
               }
             }
@@ -57,21 +63,7 @@
           "201": {
             "description": "注册成功",
             "schema": {
-              "properties": {
-                "msg": {
-                  "type": "string",
-                  "description": "提示信息"
-                },
-                "data": {
-                  "type": "object",
-                  "properties": {
-                    "userId": {
-                      "type": "string",
-                      "description": "用户 ID"
-                    }
-                  }
-                }
-              }
+              "$ref": "#/definitions/Msg"
             }
           },
           "409": {
@@ -81,7 +73,7 @@
             }
           },
           "500": {
-            "description": "服务器未知错误 || 注册频率超出限制（60s 重置）",
+            "description": "服务器未知错误",
             "schema": {
               "$ref": "#/definitions/Msg"
             }
@@ -94,7 +86,7 @@
         "tags": [
           "鉴权"
         ],
-        "summary": "用户登录",
+        "summary": "登录",
         "description": "返回 accessToken 和提示信息",
         "parameters": [
           {
@@ -157,12 +149,12 @@
         }
       }
     },
-    "/user/validate": {
+    "/email/validate": {
       "post": {
         "tags": [
-          "用户"
+          "鉴权"
         ],
-        "summary": "用户注册验证（验证码 24 小时后失效）",
+        "summary": "发送验证邮件（100 秒间隔限制发送）",
         "description": "返回提示信息",
         "parameters": [
           {
@@ -171,67 +163,19 @@
             "required": true,
             "schema": {
               "required": [
-                "userId",
-                "code"
+                "email",
+                "type"
               ],
               "properties": {
-                "userId": {
-                  "type": "string",
-                  "example": "xxxxxxxxxxx",
-                  "description": "用户 ID"
-                },
-                "code": {
-                  "type": "string",
-                  "example": "xxxxxxxxxx",
-                  "description": "用户获取的验证码"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "验证成功",
-            "schema": {
-              "$ref": "#/definitions/Msg"
-            }
-          },
-          "500": {
-            "description": "服务器未知错误 || 验证失败",
-            "schema": {
-              "$ref": "#/definitions/Msg"
-            }
-          }
-        }
-      }
-    },
-    "/user/revalidate": {
-      "post": {
-        "tags": [
-          "用户"
-        ],
-        "summary": "用户重新发送验证邮件（5 分钟间隔限制发送）",
-        "description": "返回提示信息",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "required": [
-                "userId",
-                "email"
-              ],
-              "properties": {
-                "userId": {
-                  "type": "string",
-                  "example": "xxxxxxxxxxx",
-                  "description": "用户 ID"
-                },
                 "email": {
                   "type": "string",
                   "example": "xxx@xxx.com",
-                  "description": "用户注册邮箱"
+                  "description": "用户邮箱"
+                },
+                "type": {
+                  "type": "string",
+                  "example": "SIGNUP",
+                  "description": "验证邮件类型（'SIGNUP'：注册验证邮件 | 'RESET'：重置密码验证邮件）"
                 }
               }
             }
@@ -244,6 +188,61 @@
               "$ref": "#/definitions/Msg"
             }
           },
+          "500": {
+            "description": "服务器未知错误 || 频繁发送",
+            "schema": {
+              "$ref": "#/definitions/Msg"
+            }
+          }
+        }
+      }
+    },
+    "/user/reset": {
+      "post": {
+        "tags": [
+          "用户"
+        ],
+        "summary": "重置密码",
+        "description": "返回提示信息",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "required": [
+                "email",
+                "password",
+                "code"
+              ],
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": "xxx@xxx.com",
+                  "description": "用户邮箱"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "xxxx",
+                  "description": "用户密码（4 - 20位）"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "密码重置成功",
+            "schema": {
+              "$ref": "#/definitions/Msg"
+            }
+          },
+          "401": {
+            "description": "鉴权错误",
+            "schema": {
+              "$ref": "#/definitions/Msg"
+            }
+          },
           "404": {
             "description": "用户未注册",
             "schema": {
@@ -251,7 +250,7 @@
             }
           },
           "500": {
-            "description": "服务器未知错误 || 频繁发送",
+            "description": "服务器未知错误",
             "schema": {
               "$ref": "#/definitions/Msg"
             }

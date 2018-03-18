@@ -12,11 +12,10 @@ module.exports = app => {
 
   // 鉴权
   router.post('/v1/signup', controller.v1.user.signup);
-  router.post('/v1/signup/email', controller.v1.user.signupEmail);
+  router.post('/v1/email/validate', controller.v1.user.validateEmail);
   router.post('/v1/signin', controller.v1.user.signin);
 
   // 用户
-  router.post('/v1/user/reset/email', controller.v1.user.resetPassEmail);
   router.patch('/v1/user/reset', controller.v1.user.resetPass);
 
   // 城市列表

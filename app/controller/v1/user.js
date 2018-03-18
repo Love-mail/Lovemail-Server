@@ -88,13 +88,16 @@ class UserController extends Controller {
     }
   }
 
-  // 注册验证邮件发送
-  async signupEmail() {
+  // 发送验证邮件
+  async validateEmail() {
     const { ctx, app } = this;
     const model = ctx.request.body;
     const rule = {
       email: {
         type: 'email',
+      },
+      type: {
+        type: 'string',
       },
     };
 
@@ -114,64 +117,28 @@ class UserController extends Controller {
         await app.redis.get('emailLimit').set(ctx.ip, 'limit', 'EX', 100);
         // 设置验证码过期时间为 24 小时
         await app.redis.get('validateCode').set(model.email, validateCode, 'EX', 60 * 60 * 24);
-        await ctx.service.v1.email.send(
-          model.email,
-          ctx.__('Email validate'),
-          'validate',
-          validateCode
-        );
+
+        if (model.type === 'SIGNUP') {
+          await ctx.service.v1.email.send(
+            model.email,
+            ctx.__('Email validate'),
+            'validate',
+            validateCode
+          );
+        }
+
+        if (model.type === 'RESET') {
+          await ctx.service.v1.email.send(
+            model.email,
+            ctx.__('Password reset verificate'),
+            'resetPass',
+            validateCode
+          );
+        }
       });
 
       ctx.body = {
         msg: 'Mail sent successfully',
-      };
-      ctx.status = 200;
-    }
-  }
-
-  // 重置密码验证邮件发送
-  async resetPassEmail() {
-    const { ctx, app } = this;
-    const model = ctx.request.body;
-
-    const rule = {
-      email: {
-        type: 'email',
-      },
-    };
-
-    ctx.validate(rule);
-    const hasSendEmail = await app.redis.get('emailLimit').exists(ctx.ip);
-    const isUser = await ctx.service.v1.user.findByEmail(model.email);
-
-    if (!isUser) {
-      ctx.body = {
-        msg: 'Please signup first',
-      };
-      ctx.status = 404;
-    } else if (hasSendEmail) {
-      ctx.body = {
-        msg: 'Please do not send email frequently',
-      };
-      ctx.status = 500;
-    } else {
-      const validateCode = ctx.helper.generateCode();
-
-      ctx.runInBackground(async () => {
-        // 设置 100 秒不能重新发送验证邮件
-        await app.redis.get('emailLimit').set(ctx.ip, 'limit', 'EX', 100);
-        // 设置邮箱验证码过期时间为 24 小时
-        await app.redis.get('validateCode').set(model.email, validateCode, 'EX', 60 * 60 * 24);
-        await ctx.service.v1.email.send(
-          model.email,
-          ctx.__('Password reset verificate'),
-          'resetPass',
-          validateCode
-        );
-      });
-
-      ctx.body = {
-        msg: 'Send verification mail successfully',
       };
       ctx.status = 200;
     }
