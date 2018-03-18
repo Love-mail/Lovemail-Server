@@ -304,12 +304,12 @@
                 },
                 "love_time": {
                   "type": "string",
-                  "example": 420,
+                  "example": "7:00",
                   "description": "发件时间（暂定均为 7:00）"
                 },
                 "love_date": {
                   "type": "string",
-                  "example": "2018-01-01T00:00:00.000Z",
+                  "example": "2018-01-01",
                   "description": "在一起时间（YYYY-MM-DD）"
                 },
                 "love_city": {
@@ -384,12 +384,12 @@
                 },
                 "love_time": {
                   "type": "string",
-                  "example": 420,
+                  "example": "7:00",
                   "description": "发件时间（暂定均为 7:00）"
                 },
                 "love_date": {
                   "type": "string",
-                  "example": "2018-01-01T00:00:00.000Z",
+                  "example": "2018-01-01",
                   "description": "在一起时间（YYYY-MM-DD）"
                 },
                 "love_city": {
