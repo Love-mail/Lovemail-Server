@@ -3,6 +3,7 @@
 const Controller = require('egg').Controller;
 
 class CityController extends Controller {
+  // 全部城市列表
   async index() {
     const { ctx } = this;
 

@@ -42,9 +42,7 @@ module.exports = appInfo => {
       '/v1/signin',
       '/v1/signup',
       '/docs',
-      '/v1/user/validate',
-      '/v1/user/signup/revalidate/email',
-      '/v1/user/reset/email',
+      '/v1/email/validate',
       '/v1/user/reset',
     ],
   };
@@ -101,6 +99,11 @@ module.exports = appInfo => {
         port: 6379,
         host: '127.0.0.1',
         db: 3,
+      },
+      setEmailLimit: {
+        port: 6379,
+        host: '127.0.0.1',
+        db: 4,
       },
     },
   };

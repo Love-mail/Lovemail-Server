@@ -27,4 +27,9 @@ module.exports = {
   'Resend mail successfully': '验证邮件重发成功',
   'Incorrect email or password': '邮箱地址或密码错误',
   'Mail sent successfully': '邮件发送成功',
+
+  // lovemail.js
+  'Set up Successfully': '设置成功',
+  'Cannot repeatedly modify lover mailbox within 24 hours': '24小时内不能重复修改对象邮箱',
+  'Untie email Successfully': '解绑对象邮箱成功',
 };

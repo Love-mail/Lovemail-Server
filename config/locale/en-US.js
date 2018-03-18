@@ -27,4 +27,9 @@ module.exports = {
   'Resend mail successfully': 'Resend mail successfully',
   'Incorrect email or password': 'Incorrect email or password',
   'Mail sent successfully': 'Mail sent successfully',
+
+  // lovemail.js
+  'Set up Successfully': 'Set up Successfully',
+  'Cannot repeatedly modify lover mailbox within 24 hours': 'Cannot repeatedly modify lover mailbox within 24 hours',
+  'Untie email Successfully': 'Untie email Successfully',
 };

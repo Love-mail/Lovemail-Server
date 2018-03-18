@@ -18,6 +18,11 @@ module.exports = app => {
   // 用户
   router.patch('/v1/user/reset', controller.v1.user.resetPass);
 
+  // 推送设置
+  router.post('/v1/lovemail/setting', controller.v1.lovemail.save);
+  router.patch('/v1/lovemail/setting', controller.v1.lovemail.update);
+  router.patch('/v1/lovemail/untie', controller.v1.lovemail.untie);
+
   // 城市列表
   router.get('/v1/city/all', controller.v1.city.index);
 };

@@ -70,7 +70,7 @@ class UserController extends Controller {
 
     if (signinedUser) {
       const userData = {
-        id: signinedUser.id,
+        userId: signinedUser.id,
       };
 
       ctx.body = {
@@ -102,6 +102,7 @@ class UserController extends Controller {
     };
 
     ctx.validate(rule);
+    const isUser = await ctx.service.v1.user.findByEmail(model.email);
     const hasSendEmail = await app.redis.get('emailLimit').exists(ctx.ip);
 
     if (hasSendEmail) {
@@ -109,6 +110,16 @@ class UserController extends Controller {
         msg: 'Please do not send email frequently',
       };
       ctx.status = 500;
+    } else if (!isUser && model.type === 'RESET') {
+      ctx.body = {
+        msg: 'Please signup first',
+      };
+      ctx.status = 404;
+    } else if (isUser && model.type === 'SIGNUP') {
+      ctx.body = {
+        msg: 'Email is occupied',
+      };
+      ctx.status = 409;
     } else {
       const validateCode = ctx.helper.generateCode();
 

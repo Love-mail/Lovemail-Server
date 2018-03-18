@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = app => {
-  const { DATE, STRING } = app.Sequelize;
+  const { DATE, STRING, BOOLEAN } = app.Sequelize;
 
   // 用户模型
   const User = app.model.define('user', {
@@ -30,9 +30,6 @@ module.exports = app => {
       allowNull: true,
       unique: true,
       type: STRING,
-      validate: {
-        isEmail: true,
-      },
       comment: '情人邮箱',
     },
     love_msg: {
@@ -60,10 +57,11 @@ module.exports = app => {
       type: STRING,
       comment: '模板主题色',
     },
-    love_email_updated: {
-      allowNull: true,
-      type: STRING,
-      comment: '绑定情人邮箱更新时间',
+    isStart: {
+      allowNull: false,
+      type: BOOLEAN,
+      defaultValue: false,
+      comment: '是否开启推送',
     },
     created_at: {
       allowNull: false,
