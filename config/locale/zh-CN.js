@@ -8,11 +8,11 @@ module.exports = {
   'Validation Failed': '数据格式错误',
 
   // response_handler
-  Success: '成功',
+  'Success': '成功',
 
   // user.js
   'Signin successful': '登录成功',
-  'Signup successful': '注册成功，前往邮箱获取验证码',
+  'Signup successful': '注册成功',
   'Please do not signup frequently': '请勿频繁注册',
   'Update successful': '更新成功',
   'Email is occupied': '邮箱已占用',

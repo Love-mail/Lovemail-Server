@@ -123,7 +123,7 @@ class UserController extends Controller {
       });
 
       ctx.body = {
-        msg: 'Send mail successfully',
+        msg: 'Mail sent successfully',
       };
       ctx.status = 200;
     }

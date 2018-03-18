@@ -8,7 +8,7 @@ module.exports = {
   'Validation Failed': 'Validation Failed',
 
   // response_handler
-  Success: 'Success',
+  'Success': 'Success',
 
   // user.js
   'Signin successful': 'Signin successful',

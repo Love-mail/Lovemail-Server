@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>重置密码</title>
+    <title>密码重置验证</title>
     <style type="text/css">
       img {
         max-width: 100%;
