@@ -65,13 +65,19 @@ module.exports = appInfo => {
 
   // 安全
   config.security = {
-    domainWhiteList: [ 'https://lovemail.site' ],
+    // domainWhiteList: [ 'https://lovemail.site' ],
     methodnoallow: {
       enable: false,
     },
     csrf: {
       enable: false,
     },
+  };
+
+  // 跨域
+  config.cors = {
+    origin: '*',
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
   };
 
   // Sequelize
