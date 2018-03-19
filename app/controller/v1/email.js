@@ -6,7 +6,7 @@ class EmailController extends Controller {
   // 退订邮件
   async unsubscribe() {
     const { ctx } = this;
-    const emailAddress = ctx.request.query;
+    const emailAddress = ctx.query.emailAddress;
 
     const result = await ctx.app.mailgun.unsubscribes().create({
       address: emailAddress,
