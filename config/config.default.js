@@ -65,6 +65,7 @@ module.exports = appInfo => {
 
   // 安全
   config.security = {
+    domainWhiteList: [ 'https://lovemail.site' ],
     methodnoallow: {
       enable: false,
     },
