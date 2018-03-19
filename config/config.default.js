@@ -44,6 +44,7 @@ module.exports = appInfo => {
       '/docs',
       '/v1/email/validate',
       '/v1/user/reset',
+      '/v1/unsubscribe'
     ],
   };
 

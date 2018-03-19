@@ -25,4 +25,7 @@ module.exports = app => {
 
   // 城市列表
   router.get('/v1/city/all', controller.v1.city.index);
+
+  router.get('/v1/unsubscribe', controller.v1.email.unsubscribe);
+
 };

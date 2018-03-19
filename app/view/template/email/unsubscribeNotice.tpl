@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>密码重置验证</title>
+    <title>退订通知</title>
     <style type="text/css">
       img {
         max-width: 100%;
@@ -89,29 +89,15 @@
                     <tr style="font-family: sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
                       <td class="content-block" style="font-family: sans-serif; box-sizing: border-box; font-size: 24px; font-weight: 400; vertical-align: top; margin: 0; padding: 20px 0 20px;line-height:40px;"
                         valign="top">
-                        获取验证码，更改您的
-                        <span style="color:#68BEE9;">LOVEMAIL</span> 密码
+                        抱歉，您在
+                        <span style="color:#6D85B9;">LOVEMAIL</span> 上绑定的对象邮箱对方已退订
                       </td>
                     </tr>
                     <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
                       <td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 18px; font-weight: 600; vertical-align: top; margin: 0; padding: 0 0 20px; color:#bcbcbc;"
                         valign="top">
-                        <h1 style="color:#888;">“</h1> 我们寻寻觅觅了那么久，遍尝每一次爱情的甜蜜与艰辛，而最后选择的爱人，不过就是在我们心意动时，经过身边的那一个。什么青梅竹马，什么心有灵犀，什么一见钟情，都不过是些锦上添花的借口，时间才是冥冥中一切的主宰
+                        <h1 style="color:#888;">“</h1> 最令人难过的事，不是你离开，而是你离开的原因我不明白。 没有勇气问明白
                         <h1 style="float:right; color:#888;">”</h1>
-                      </td>
-                    </tr>
-                    <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
-                      <td class="content-block" itemprop="handler" itemscope itemtype="http://schema.org/HttpActionHandler" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;"
-                        valign="top">
-                        <a class="btn-primary" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; color: #FFF; text-decoration: none; line-height: 2em; font-weight: bold; text-align: center; cursor: text; display: inline-block; border-radius: 5px; text-transform: capitalize; background-color: #68BEE9; margin: 0; border-color: #68BEE9; border-style: solid; border-width: 10px 20px;letter-spacing:3px;">
-                          {{data.code}}
-                        </a>
-                      </td>
-                    </tr>
-                    <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
-                      <td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px; color: #999;"
-                        valign="top">
-                        验证码 24 小时后过期
                       </td>
                     </tr>
                     <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
@@ -130,9 +116,9 @@
                   <td class="aligncenter content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 12px; vertical-align: top; color: #999; text-align: center; margin: 0; padding: 0 0 20px;"
                     align="center" valign="top">
                     如果您并未创建过
-                    <a href="https://lovemail.site" target="_blank" style="text-decoration: underline; color: #68BEE9; font-family: sans-serif; font-size: 13px; font-weight: 400; line-height: 150%;">Lovemail</a>
+                    <a href="https://lovemail.site" target="_blank" style="text-decoration: underline; color: #6D85B9; font-family: sans-serif; font-size: 13px; font-weight: 400; line-height: 150%;">Lovemail</a>
                     账号且不知道为何收到这封电子邮件，请点击
-                    <a href="https://api.lovemail.site/v1/unsubscribe?emailAddress={{data.emailAddress}}" target="_blank" style="text-decoration: underline; color: #68BEE9; font-family: sans-serif; font-size: 13px; font-weight: 400; line-height: 150%;">取消订阅</a> ， 当然，我们非常欢迎您的加入
+                    <a href="https://lovemail.site" target="_blank" style="text-decoration: underline; color: #6D85B9; font-family: sans-serif; font-size: 13px; font-weight: 400; line-height: 150%;">取消订阅</a> ， 当然，我们非常欢迎您的加入
                     <br>
                     <p style="font-size:12px;color:#aaa">永不舵机的服务器，坚守你的持之以恒</p>
                   </td>

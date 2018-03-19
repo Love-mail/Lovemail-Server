@@ -21,6 +21,7 @@ class EmailService extends Service {
         {
           data: {
             code,
+            emailAddress: receiver
           },
         }
       );
@@ -32,6 +33,7 @@ class EmailService extends Service {
         {
           data: {
             code,
+            emailAddress: receiver
           },
         }
       );

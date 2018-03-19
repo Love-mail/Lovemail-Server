@@ -32,4 +32,7 @@ module.exports = {
   'Set up Successfully': '设置成功',
   'Cannot repeatedly modify lover mailbox within 24 hours': '24小时内不能重复修改对象邮箱',
   'Untie email Successfully': '解绑对象邮箱成功',
+
+  // email.js
+  'Address has been added to the unsubscribes table': '已退订此邮件'
 };
