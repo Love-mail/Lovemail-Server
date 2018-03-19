@@ -197,6 +197,102 @@
         }
       }
     },
+    "/user": {
+      "get": {
+        "tags": [
+          "用户"
+        ],
+        "summary": "获取用户信息",
+        "description": "返回用户信息",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "AccessToken",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "获取用户信息成功",
+            "schema": {
+              "properties": {
+                "msg": {
+                  "type": "string",
+                  "description": "提示信息"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "用户 ID"
+                    },
+                    "email": {
+                      "type": "string",
+                      "description": "用户邮箱"
+                    },
+                    "love_email": {
+                      "type": "string",
+                      "description": "对象邮箱"
+                    },
+                    "love_msg": {
+                      "type": "string",
+                      "description": "情话"
+                    },
+                    "love_time": {
+                      "type": "string",
+                      "description": "发送时间"
+                    },
+                    "love_date": {
+                      "type": "string",
+                      "description": "在一起日期"
+                    },
+                    "love_city": {
+                      "type": "string",
+                      "description": "对象所在城市"
+                    },
+                    "love_color": {
+                      "type": "string",
+                      "description": "邮件主题色"
+                    },
+                    "love_temp": {
+                      "type": "string",
+                      "description": "所选模板"
+                    },
+                    "isStart": {
+                      "type": "boolean",
+                      "description": "是否启动服务"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "description": "账号创建时间"
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "description": "账号更新时间"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "鉴权错误",
+            "schema": {
+              "$ref": "#/definitions/Msg"
+            }
+          },
+          "500": {
+            "description": "服务器未知错误",
+            "schema": {
+              "$ref": "#/definitions/Msg"
+            }
+          }
+        }
+      }
+    },
     "/user/reset": {
       "patch": {
         "tags": [
