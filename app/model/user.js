@@ -26,6 +26,11 @@ module.exports = app => {
       type: STRING,
       comment: '用户密码',
     },
+    nickname: {
+      allowNull: true,
+      type: STRING,
+      comment: '昵称',
+    },
     love_email: {
       allowNull: true,
       unique: true,

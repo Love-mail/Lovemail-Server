@@ -233,6 +233,10 @@
                       "type": "string",
                       "description": "用户邮箱"
                     },
+                    "nickname": {
+                      "type": "string",
+                      "description": "用户昵称"
+                    },
                     "love_email": {
                       "type": "string",
                       "description": "对象邮箱"
@@ -383,12 +387,16 @@
                 "love_email",
                 "love_time",
                 "love_date",
-                "love_city",
                 "love_color",
                 "love_temp",
                 "isStart"
               ],
               "properties": {
+                "nickname": {
+                  "type": "string",
+                  "example": "观音菩萨",
+                  "description": "用户昵称（显示在邮件内，如没有则不传此字段，显示匿名）"
+                },
                 "love_email": {
                   "type": "string",
                   "example": "xxx@xxx.com",
@@ -397,7 +405,7 @@
                 "love_msg": {
                   "type": "string",
                   "example": "我爱你",
-                  "description": "一段情话（小于 150 字）"
+                  "description": "一段情话（小于 150 字，如没有则不传此字段）"
                 },
                 "love_time": {
                   "type": "string",
@@ -412,7 +420,7 @@
                 "love_city": {
                   "type": "string",
                   "example": "南昌",
-                  "description": "对象所在城市名（从城市列表获取，如没有则传空字符串）"
+                  "description": "对象所在城市名（从城市列表获取，如没有则不传此字段）"
                 },
                 "love_color": {
                   "type": "string",
@@ -474,6 +482,11 @@
             "required": true,
             "schema": {
               "properties": {
+                "nickname": {
+                  "type": "string",
+                  "example": "观音菩萨",
+                  "description": "用户昵称（显示在邮件内，如没有则不传此字段，显示匿名）"
+                },
                 "love_email": {
                   "type": "string",
                   "example": "xxx@xxx.com",
@@ -482,7 +495,7 @@
                 "love_msg": {
                   "type": "string",
                   "example": "我爱你",
-                  "description": "一段情话（小于 150 字）"
+                  "description": "一段情话（小于 150 字，如没有则不传此字段）"
                 },
                 "love_time": {
                   "type": "string",
@@ -497,7 +510,7 @@
                 "love_city": {
                   "type": "string",
                   "example": "南昌",
-                  "description": "对象所在城市名（从城市列表获取，如没有则传空字符串）"
+                  "description": "对象所在城市名（从城市列表获取，如没有则不传此字段）"
                 },
                 "love_color": {
                   "type": "string",

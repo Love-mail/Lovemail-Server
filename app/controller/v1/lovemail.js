@@ -8,12 +8,16 @@ class LovemailController extends Controller {
     const { ctx, app } = this;
     const model = ctx.request.body;
     const rule = {
+      nickname: {
+        type: 'string',
+        max: 20,
+        required: false,
+      },
       love_email: {
         type: 'email',
       },
       love_msg: {
         type: 'string',
-        allowEmpty: true,
         max: 150,
         required: false,
       },
@@ -25,7 +29,6 @@ class LovemailController extends Controller {
       },
       love_city: {
         type: 'string',
-        allowEmpty: true,
         required: false,
       },
       love_color: {
@@ -67,13 +70,17 @@ class LovemailController extends Controller {
     const { ctx, app } = this;
     const model = ctx.request.body;
     const rule = {
+      nickname: {
+        type: 'string',
+        max: 20,
+        required: false,
+      },
       love_email: {
         type: 'email',
         required: false,
       },
       love_msg: {
         type: 'string',
-        allowEmpty: true,
         max: 150,
         required: false,
       },
@@ -87,7 +94,6 @@ class LovemailController extends Controller {
       },
       love_city: {
         type: 'string',
-        allowEmpty: true,
         required: false,
       },
       love_color: {
