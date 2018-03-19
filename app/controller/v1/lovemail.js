@@ -31,6 +31,9 @@ class LovemailController extends Controller {
       love_color: {
         type: 'string',
       },
+      love_temp: {
+        type: 'string',
+      },
       isStart: {
         type: 'boolean',
       },
@@ -88,6 +91,10 @@ class LovemailController extends Controller {
         required: false,
       },
       love_color: {
+        type: 'string',
+        required: false,
+      },
+      love_temp: {
         type: 'string',
         required: false,
       },

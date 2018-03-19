@@ -21,7 +21,7 @@ class EmailService extends Service {
         {
           data: {
             code,
-            emailAddress: receiver
+            emailAddress: receiver,
           },
         }
       );
@@ -33,7 +33,18 @@ class EmailService extends Service {
         {
           data: {
             code,
-            emailAddress: receiver
+            emailAddress: receiver,
+          },
+        }
+      );
+    }
+
+    if (type === 'unsubscribeNotification') {
+      template = await ctx.renderView(
+        'template/email/unsubscribeNotification.tpl',
+        {
+          data: {
+            emailAddress: receiver,
           },
         }
       );

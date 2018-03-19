@@ -35,4 +35,5 @@ module.exports = {
 
   // email.js
   'Address has been added to the unsubscribes table': 'Address has been added to the unsubscribes table',
+  'Unsubscribe notification': 'Unsubscribe notification',
 };

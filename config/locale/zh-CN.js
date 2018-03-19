@@ -34,5 +34,6 @@ module.exports = {
   'Untie email Successfully': '解绑对象邮箱成功',
 
   // email.js
-  'Address has been added to the unsubscribes table': '已退订此邮件'
+  'Address has been added to the unsubscribes table': '已退订此邮件',
+  'Unsubscribe notification': '退订通知',
 };

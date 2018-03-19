@@ -2,31 +2,31 @@
 
 const Service = require('egg').Service;
 
-class CityService extends Service {
+class TempService extends Service {
   /**
-   * 插入一条城市数据
-   * @param {String} cityName - 城市名
+   * 插入一条模板数据
+   * @param {String} tempName - 模板名称
    * @return {void}
    */
-  async insertOne(cityName) {
+  async insertOne(tempName) {
     const { ctx } = this;
 
-    await ctx.model.City.create({
+    await ctx.model.Template.create({
       id: ctx.helper.uniqueId(),
-      cityName,
+      tempName,
       created_at: new Date().toLocaleString(),
       updated_at: new Date().toLocaleString(),
     });
   }
 
   /**
-   * 读取全部城市数据
+   * 读取全部模板数据
    * @return {Object} rsult - 查询结果
    */
   async findAll() {
     const { ctx } = this;
 
-    const result = await ctx.model.City.findAndCountAll({
+    const result = await ctx.model.Template.findAndCountAll({
       order: [
         [ 'updated_at', 'DESC' ],
       ],
@@ -36,4 +36,4 @@ class CityService extends Service {
   }
 }
 
-module.exports = CityService;
+module.exports = TempService;

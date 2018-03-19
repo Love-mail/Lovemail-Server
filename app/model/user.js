@@ -57,6 +57,11 @@ module.exports = app => {
       type: STRING,
       comment: '模板主题色',
     },
+    love_temp: {
+      allowNull: true,
+      type: STRING,
+      comment: '邮件模板',
+    },
     isStart: {
       allowNull: false,
       type: BOOLEAN,

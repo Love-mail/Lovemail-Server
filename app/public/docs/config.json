@@ -289,6 +289,7 @@
                 "love_date",
                 "love_city",
                 "love_color",
+                "love_temp",
                 "isStart"
               ],
               "properties": {
@@ -321,6 +322,11 @@
                   "type": "string",
                   "example": "#EFEFEF",
                   "description": "邮件主题颜色"
+                },
+                "love_temp": {
+                  "type": "string",
+                  "example": "xxxxxxxxxx",
+                  "description": "邮件模板 ID"
                 },
                 "isStart": {
                   "type": "boolean",
@@ -402,6 +408,11 @@
                   "example": "#EFEFEF",
                   "description": "邮件主题颜色"
                 },
+                "love_temp": {
+                  "type": "string",
+                  "example": "xxxxxxxx",
+                  "description": "邮件模板 ID"
+                },
                 "isStart": {
                   "type": "boolean",
                   "example": true,
@@ -465,6 +476,71 @@
         }
       }
     },
+    "/temp/all": {
+      "get": {
+        "tags": [
+          "模板列表"
+        ],
+        "summary": "获取全部模板",
+        "description": "返回模板列表",
+        "responses": {
+          "200": {
+            "description": "获取模板列表成功",
+            "schema": {
+              "properties": {
+                "msg": {
+                  "type": "string",
+                  "description": "提示信息"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "number",
+                      "description": "模板数量"
+                    },
+                    "rows": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "模板 ID"
+                          },
+                          "tempName": {
+                            "type": "string",
+                            "description": "模板名"
+                          },
+                          "tempDemo": {
+                            "type": "string",
+                            "description": "模板样本图片 url"
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "description": "创建时间"
+                          },
+                          "updated_at": {
+                            "type": "string",
+                            "description": "更新时间"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "服务器未知错误",
+            "schema": {
+              "$ref": "#/definitions/Msg"
+            }
+          }
+        }
+      }
+    },
     "/city/all": {
       "get": {
         "tags": [
@@ -497,7 +573,7 @@
                       "type": "number",
                       "description": "城市数量"
                     },
-                    "content": {
+                    "rows": {
                       "type": "array",
                       "items": {
                         "type": "string",

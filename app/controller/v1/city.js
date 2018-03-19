@@ -16,7 +16,7 @@ class CityController extends Controller {
     ctx.body = {
       data: {
         count: uniqueResult.length,
-        content: uniqueResult,
+        rows: uniqueResult,
       },
     };
     ctx.status = 200;

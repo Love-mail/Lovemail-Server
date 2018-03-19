@@ -46,7 +46,7 @@ class LovemailService extends Service {
   /**
    * 查询对象 email 绑定情况
    * @param {String} email    - 对象 email
-   * @return {Boolean} result - 查询结果
+   * @return {Object} result  - 查询结果
    */
   async findByLovemail(email) {
     const { ctx } = this;
@@ -57,7 +57,7 @@ class LovemailService extends Service {
       },
     });
 
-    return !!result;
+    return result;
   }
 
   /**

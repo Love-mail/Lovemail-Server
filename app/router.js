@@ -26,6 +26,10 @@ module.exports = app => {
   // 城市列表
   router.get('/v1/city/all', controller.v1.city.index);
 
+  // 模板列表
+  router.get('/v1/temp/all', controller.v1.template.index);
+
+  // 退订
   router.get('/v1/unsubscribe', controller.v1.email.unsubscribe);
 
 };

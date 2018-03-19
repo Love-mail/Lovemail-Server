@@ -8,12 +8,26 @@ class EmailController extends Controller {
     const { ctx } = this;
     const emailAddress = ctx.query.emailAddress;
 
-    const result = await ctx.app.mailgun.unsubscribes().create({
+    const isLoveEmail = await ctx.service.v1.lovemail.findByLovemail(emailAddress);
+
+    if (isLoveEmail) {
+      // 对象退订邮件通知
+      ctx.runInBackground(async () => {
+        await ctx.service.v1.email.send(
+          isLoveEmail.email,
+          ctx.__('Unsubscribe notification'),
+          'unsubscribeNotification'
+        );
+      });
+    }
+
+    // 加入退订列表
+    await ctx.app.mailgun.unsubscribes().create({
       address: emailAddress,
-      tag: '*'
+      tag: '*',
     });
 
-    await ctx.render('template/email/unsubscribeFeed.tpl')
+    await ctx.render('template/email/unsubscribeFeed.tpl');
     ctx.status = 200;
   }
 }

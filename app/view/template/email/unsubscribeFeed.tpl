@@ -89,8 +89,8 @@
                     <tr style="font-family: sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
                       <td class="content-block" style="font-family: sans-serif; box-sizing: border-box; font-size: 24px; font-weight: 400; vertical-align: top; margin: 0; padding: 20px 0 20px;line-height:40px;"
                         valign="top">
-                        您已成功退订
-                        <span style="color:#E8B13E;">LOVEMAIL</span> 邮件
+                        您已成功退订来自
+                        <span style="color:#E8B13E;">LOVEMAIL</span> 的邮件
                       </td>
                     </tr>
                     <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">

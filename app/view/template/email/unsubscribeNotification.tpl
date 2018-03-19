@@ -96,7 +96,7 @@
                     <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
                       <td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 18px; font-weight: 600; vertical-align: top; margin: 0; padding: 0 0 20px; color:#bcbcbc;"
                         valign="top">
-                        <h1 style="color:#888;">“</h1> 最令人难过的事，不是你离开，而是你离开的原因我不明白。 没有勇气问明白
+                        <h1 style="color:#888;">“</h1> 最令人难过的事，不是你离开，而是你离开的原因我不明白
                         <h1 style="float:right; color:#888;">”</h1>
                       </td>
                     </tr>

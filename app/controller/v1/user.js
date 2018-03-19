@@ -71,6 +71,7 @@ class UserController extends Controller {
     if (signinedUser) {
       const userData = {
         userId: signinedUser.id,
+        isAdmin: 0,
       };
 
       ctx.body = {

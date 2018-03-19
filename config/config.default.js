@@ -14,7 +14,7 @@ module.exports = appInfo => {
   // favicon
   config.siteFile = {
     '/favicon.ico': '/public/favicon.ico',
-  }
+  };
 
   // 中间件
   config.middleware = [
@@ -28,7 +28,7 @@ module.exports = appInfo => {
     enable: true,
     ignore: [
       '/docs',
-      '/v1/unsubscribe'
+      '/v1/unsubscribe',
     ],
   };
 
@@ -50,7 +50,8 @@ module.exports = appInfo => {
       '/docs',
       '/v1/email/validate',
       '/v1/user/reset',
-      '/v1/unsubscribe'
+      '/v1/unsubscribe',
+      '/v1/temp/all',
     ],
   };
 
