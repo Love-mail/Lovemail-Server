@@ -11,6 +11,11 @@ module.exports = appInfo => {
   // app key
   config.keys = appInfo.name;
 
+  // favicon
+  config.siteFile = {
+    '/favicon.ico': '/public/favicon.ico',
+  }
+
   // 中间件
   config.middleware = [
     'errorHandler',
