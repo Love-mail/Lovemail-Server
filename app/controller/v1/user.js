@@ -3,6 +3,17 @@
 const Controller = require('egg').Controller;
 
 class UserController extends Controller {
+  // 获取用户信息
+  async index() {
+    const { ctx } = this;
+
+    const result = await ctx.service.v1.user.findById(ctx.state.user.data.userId);
+
+    ctx.body = {
+      data: result,
+    };
+    ctx.status = 200;
+  }
   // 注册
   async signup() {
     const { ctx, app } = this;

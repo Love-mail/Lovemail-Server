@@ -77,7 +77,7 @@ module.exports = appInfo => {
   // 跨域
   config.cors = {
     origin: '*',
-    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
   };
 
   // Sequelize

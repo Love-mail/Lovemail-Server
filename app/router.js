@@ -16,6 +16,7 @@ module.exports = app => {
   router.post('/v1/signin', controller.v1.user.signin);
 
   // 用户
+  router.get('/v1/user', controller.v1.user.index);
   router.patch('/v1/user/reset', controller.v1.user.resetPass);
 
   // 推送设置
