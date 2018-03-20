@@ -6,7 +6,8 @@ const MailComposer = require('nodemailer/lib/mail-composer');
 class SendLovemail extends Subscription {
   static get schedule() {
     return {
-      cron: '0 0 7 * * *',
+      // cron: '0 0 7 * * *',
+      interval: '5m', // 测试
       type: 'worker',
     };
   }
