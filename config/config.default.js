@@ -29,6 +29,7 @@ module.exports = appInfo => {
     ignore: [
       '/docs',
       '/v1/unsubscribe',
+      '/public/',
     ],
   };
 
@@ -45,6 +46,7 @@ module.exports = appInfo => {
     enable: true,
     key: 'user',
     ignore: [
+      '/public/',
       '/v1/signin',
       '/v1/signup',
       '/docs',
