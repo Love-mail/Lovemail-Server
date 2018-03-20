@@ -8,7 +8,7 @@ module.exports = {
   'Validation Failed': 'Validation Failed',
 
   // response_handler
-  'Success': 'Success',
+  Success: 'Success',
 
   // user.js
   'Signin successful': 'Signin successful',
@@ -32,6 +32,7 @@ module.exports = {
   'Set up Successfully': 'Set up Successfully',
   'Cannot repeatedly modify lover mailbox within 24 hours': 'Cannot repeatedly modify lover mailbox within 24 hours',
   'Untie email Successfully': 'Untie email Successfully',
+  'Please set lovemail first': 'Please set lovemail first',
 
   // email.js
   'Address has been added to the unsubscribes table': 'Address has been added to the unsubscribes table',

@@ -118,7 +118,7 @@
                     如果您并未创建过
                     <a href="https://lovemail.site" target="_blank" style="text-decoration: underline; color: #6D85B9; font-family: sans-serif; font-size: 13px; font-weight: 400; line-height: 150%;">Lovemail</a>
                     账号且不知道为何收到这封电子邮件，请点击
-                    <a href="https://lovemail.site" target="_blank" style="text-decoration: underline; color: #6D85B9; font-family: sans-serif; font-size: 13px; font-weight: 400; line-height: 150%;">取消订阅</a> ， 当然，我们非常欢迎您的加入
+                    <a href="https://api.lovemail.site/v1/unsubscribe?emailAddress={{data.emailAddress}}" target="_blank" style="text-decoration: underline; color: #6D85B9; font-family: sans-serif; font-size: 13px; font-weight: 400; line-height: 150%;">取消订阅</a> ， 当然，我们非常欢迎您的加入
                     <br>
                     <p style="font-size:12px;color:#aaa">永不舵机的服务器，坚守你的持之以恒</p>
                   </td>

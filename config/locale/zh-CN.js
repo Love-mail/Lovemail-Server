@@ -8,7 +8,7 @@ module.exports = {
   'Validation Failed': '数据格式错误',
 
   // response_handler
-  'Success': '成功',
+  Success: '成功',
 
   // user.js
   'Signin successful': '登录成功',
@@ -32,6 +32,7 @@ module.exports = {
   'Set up Successfully': '设置成功',
   'Cannot repeatedly modify lover mailbox within 24 hours': '24小时内不能重复修改对象邮箱',
   'Untie email Successfully': '解绑对象邮箱成功',
+  'Please set lovemail first': '请先设置对象邮箱',
 
   // email.js
   'Address has been added to the unsubscribes table': '已退订此邮件',

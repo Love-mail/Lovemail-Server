@@ -61,6 +61,28 @@ class LovemailService extends Service {
   }
 
   /**
+   * 查询 lovemail 服务对象
+   * @return {Object} result - 查询结果
+   */
+  async findByIsStart() {
+    const { ctx } = this;
+
+    const result = await ctx.model.User.findAndCountAll({
+      attributes: {
+        exclude: [ 'password' ],
+      },
+      where: {
+        isStart: true,
+      },
+      order: [
+        [ 'updated_at', 'DESC' ],
+      ],
+    });
+
+    return result;
+  }
+
+  /**
    * 解绑对象邮箱
    * @param {String} id - 用户 ID
    * @return {void}
@@ -72,6 +94,7 @@ class LovemailService extends Service {
 
     await ctx.model.User.update({
       love_email: null,
+      isStart: false,
     }, {
       where: {
         id,

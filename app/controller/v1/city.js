@@ -11,6 +11,7 @@ class CityController extends Controller {
     const resource = result.rows.map(e => {
       return e.cityName;
     });
+    // 去除重复城市（气象局 api bug）
     const uniqueResult = [ ...new Set(resource) ];
 
     ctx.body = {

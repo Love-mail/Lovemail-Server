@@ -42,4 +42,15 @@ module.exports = {
 
     return code;
   },
+
+  // 随机数生成
+  random(max) {
+    return ~~(0 + Math.random() * max);
+  },
+
+  // 在一起时间间隔
+  loveTimeInterval(time) {
+    moment.locale('zh-cn');
+    return moment(time, 'YYYY-MM-DD').fromNow();
+  },
 };

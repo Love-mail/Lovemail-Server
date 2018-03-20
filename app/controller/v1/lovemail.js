@@ -111,6 +111,7 @@ class LovemailController extends Controller {
     };
 
     ctx.validate(rule);
+    const user = await ctx.service.v1.user.findById(ctx.state.user.data.userId);
     const isLimit = await app.redis.get('setEmailLimit').exists(ctx.state.user.data.userId);
     const isOccupied = await ctx.service.v1.lovemail.findByLovemail(model.love_email);
 
@@ -122,6 +123,12 @@ class LovemailController extends Controller {
     } else if (model.love_email && isLimit) {
       ctx.body = {
         msg: 'Cannot repeatedly modify lover mailbox within 24 hours',
+      };
+      ctx.status = 500;
+    } else if (model.isStart && !user.love_email) {
+      await ctx.service.v1.lovemail.update(ctx.state.user.data.userId, model);
+      ctx.body = {
+        msg: 'Please set lovemail first',
       };
       ctx.status = 500;
     } else {
