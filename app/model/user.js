@@ -37,11 +37,6 @@ module.exports = app => {
       type: STRING,
       comment: '情人邮箱',
     },
-    love_msg: {
-      allowNull: true,
-      type: STRING,
-      comment: '个性化文字',
-    },
     love_time: {
       allowNull: true,
       type: STRING,

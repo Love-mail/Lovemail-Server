@@ -241,10 +241,6 @@
                       "type": "string",
                       "description": "对象邮箱"
                     },
-                    "love_msg": {
-                      "type": "string",
-                      "description": "情话"
-                    },
                     "love_time": {
                       "type": "string",
                       "description": "发送时间"
@@ -402,11 +398,6 @@
                   "example": "xxx@xxx.com",
                   "description": "对象邮箱"
                 },
-                "love_msg": {
-                  "type": "string",
-                  "example": "我爱你",
-                  "description": "一段情话（小于 150 字，如没有则不传此字段）"
-                },
                 "love_time": {
                   "type": "string",
                   "example": "7:00",
@@ -429,8 +420,8 @@
                 },
                 "love_temp": {
                   "type": "string",
-                  "example": "xxxxxxxxxx",
-                  "description": "邮件模板 ID"
+                  "example": "one",
+                  "description": "邮件模板名称（one，essay，movie，music）"
                 },
                 "isStart": {
                   "type": "boolean",
@@ -492,11 +483,6 @@
                   "example": "xxx@xxx.com",
                   "description": "对象邮箱"
                 },
-                "love_msg": {
-                  "type": "string",
-                  "example": "我爱你",
-                  "description": "一段情话（小于 150 字，如没有则不传此字段）"
-                },
                 "love_time": {
                   "type": "string",
                   "example": "7:00",
@@ -519,8 +505,8 @@
                 },
                 "love_temp": {
                   "type": "string",
-                  "example": "xxxxxxxx",
-                  "description": "邮件模板 ID"
+                  "example": "one",
+                  "description": "邮件模板名称（one，essay，movie，music）"
                 },
                 "isStart": {
                   "type": "boolean",

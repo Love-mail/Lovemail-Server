@@ -16,11 +16,6 @@ class LovemailController extends Controller {
       love_email: {
         type: 'email',
       },
-      love_msg: {
-        type: 'string',
-        max: 150,
-        required: false,
-      },
       love_time: {
         type: 'string',
       },
@@ -77,11 +72,6 @@ class LovemailController extends Controller {
       },
       love_email: {
         type: 'email',
-        required: false,
-      },
-      love_msg: {
-        type: 'string',
-        max: 150,
         required: false,
       },
       love_time: {

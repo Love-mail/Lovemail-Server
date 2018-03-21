@@ -33,12 +33,11 @@ class SendLovemail extends Subscription {
         nickname: result.rows[e].nickname,
         loveTimeInterval: ctx.helper.loveTimeInterval(result.rows[e].love_date),
         love_email: result.rows[e].love_email,
-        love_msg: result.rows[e].love_msg,
         love_time: result.rows[e].love_time,
         love_color: result.rows[e].love_color,
         stateDetailed: weatherData.stateDetailed,
         weatherState: weatherData.state1,
-        tem1: weatherData.tem2,
+        tem1: weatherData.tem1,
         tem2: weatherData.tem2,
       };
     }
@@ -57,7 +56,6 @@ class SendLovemail extends Subscription {
             nickname: '%recipient.nickname%',
             loveTimeInterval: '%recipient.loveTimeInterval%',
             love_email: '%recipient.love_email%',
-            love_msg: '%recipient.love_email%',
             love_time: '%recipient.love_email%',
             love_city: '%recipient.love_email%',
             love_color: '%recipient.love_email%',

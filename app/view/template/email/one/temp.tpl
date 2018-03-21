@@ -106,7 +106,7 @@
 											<table width="100%" cellpadding="0" cellspacing="0">
 												<tr>
 													<td data-color="title" data-size="size title" data-min="25" data-max="45" data-link-color="link title color" data-link-style="text-decoration:none; color:#292c34;" class="title" align="center" style="font:26px/38px Arial, Helvetica, sans-serif; color:#444; padding:0 0 24px;">
-														<span style="font-size:35px;color:#D14243;">{{data.loveTimeInterval}}</span>，{{data.nickname}} 和你在一起
+														<span style="font-size:35px;color:#D14243;">{{data.loveTimeInterval}}</span>，{{data.nickname}}和你在一起
 													</td>
 												</tr>
 												<tr>
