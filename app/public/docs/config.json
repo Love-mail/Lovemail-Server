@@ -258,8 +258,8 @@
                       "description": "邮件主题色"
                     },
                     "love_temp": {
-                      "type": "string",
-                      "description": "所选模板"
+                      "type": "number",
+                      "description": "所选模板（one - 1，essay - 2，movie - 3，music - 4）"
                     },
                     "isStart": {
                       "type": "boolean",
@@ -419,9 +419,9 @@
                   "description": "邮件主题颜色"
                 },
                 "love_temp": {
-                  "type": "string",
-                  "example": "one",
-                  "description": "邮件模板名称（one，essay，movie，music）"
+                  "type": "number",
+                  "example": 1,
+                  "description": "邮件模板名称（one - 1，essay - 2，movie - 3，music - 4）"
                 },
                 "isStart": {
                   "type": "boolean",
@@ -504,9 +504,9 @@
                   "description": "邮件主题颜色"
                 },
                 "love_temp": {
-                  "type": "string",
-                  "example": "one",
-                  "description": "邮件模板名称（one，essay，movie，music）"
+                  "type": "number",
+                  "example": 1,
+                  "description": "邮件模板名称（one - 1，essay - 2，movie - 3，music - 4）"
                 },
                 "isStart": {
                   "type": "boolean",

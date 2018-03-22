@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = app => {
-  const { DATE, STRING, BOOLEAN } = app.Sequelize;
+  const { DATE, STRING, BOOLEAN, INTEGER } = app.Sequelize;
 
   // 用户模型
   const User = app.model.define('user', {
@@ -59,7 +59,7 @@ module.exports = app => {
     },
     love_temp: {
       allowNull: true,
-      type: STRING,
+      type: INTEGER,
       comment: '邮件模板',
     },
     isStart: {

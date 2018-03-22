@@ -89,6 +89,7 @@ class UserController extends Controller {
         msg: 'Signin successful',
         data: {
           accessToken: ctx.helper.generateToken(userData),
+          userInfo: signinedUser
         },
       };
       ctx.status = 200;

@@ -31,6 +31,9 @@ class UserService extends Service {
     const { ctx } = this;
 
     const user = await ctx.model.User.findOne({
+      attributes: {
+        exclude: [ 'password' ],
+      },
       where: {
         email: model.email,
       },

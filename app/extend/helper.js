@@ -50,7 +50,8 @@ module.exports = {
 
   // 在一起时间间隔
   loveTimeInterval(time) {
-    moment.locale('zh-cn');
-    return moment(time, 'YYYY-MM-DD').fromNow();
+    const pass = moment(time, 'YYYY-MM-DD');
+    const now = moment(new Date(), 'YYYY-MM-DD');
+    return now.diff(pass, 'days')
   },
 };
